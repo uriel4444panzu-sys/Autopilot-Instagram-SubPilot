@@ -183,13 +183,13 @@
   },
   {
     "id": "draft-ton-cerveau-peut-arreter-de-faire-le-suivi-1788118451998-1",
-    "date": null,
+    "date": "2026-08-31",
     "type": "feed",
     "image": "feed/feed-visuel-avant-apres-haut-de-gamme-au-format-instagram-4-5-com-1788118451996.png",
     "caption": "Essayer de tout retenir, c’est déjà du travail : quelle date, quel montant, quel renouvellement ?\n\nSubPilot rassemble la vue d’ensemble pour que tes abonnements arrêtent d’occuper une place gratuite dans ta tête.\n\nDécouvre ta vue d’ensemble sur SubPilot.\n\n#subpilot #gestionabonnements #chargementale #organisation #applicationmobile #fintechfrance #maitrisesonbudget #depensesmensuelles #budgetfacile #outilsnumeriques",
     "hook": "Ton cerveau peut arrêter de faire le suivi.",
     "archetype": "G",
     "concept": "Un avant/après abstrait oppose la charge mentale des abonnements dispersés à une vision centralisée dans SubPilot. La transition visuelle transforme un réseau confus d’échéances en une composition calme organisée autour de l’application.",
-    "status": "draft"
+    "status": "approved"
   }
 ]
