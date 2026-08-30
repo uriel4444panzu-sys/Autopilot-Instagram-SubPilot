@@ -27,6 +27,10 @@ on:
         description: "Programmer dans combien de minutes"
         required: false
         default: "60"
+      media_path:
+        description: "Chemin du média dans le repo (requis pour reel, optionnel sinon)"
+        required: false
+        default: ""
       confirm:
         description: 'Tape "yes" pour confirmer la programmation réelle sur Buffer'
         required: true
@@ -57,5 +61,6 @@ jobs:
           MEDIA_BASE: ${{ steps.media.outputs.base }}
           TEST_POST_TYPE: ${{ github.event.inputs.type }}
           TEST_MINUTES_FROM_NOW: ${{ github.event.inputs.minutes_from_now }}
+          TEST_MEDIA_PATH: ${{ github.event.inputs.media_path }}
           CONFIRM: ${{ github.event.inputs.confirm }}
         run: node scripts/test-buffer-publish.js
