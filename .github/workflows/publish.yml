@@ -7,6 +7,12 @@ name: Publier sur Instagram
 #   - publisher     = "buffer" (par défaut, nouveau) ou "meta" (ancien, pour rollback).
 # Auto (optionnel) : décommente le bloc "schedule". Reste désactivé tant que le
 # provider buffer n'a pas été validé manuellement (voir BUFFER_SETUP.md).
+#
+# Secrets requis (Settings -> Secrets and variables -> Actions) :
+#   - PUBLISHER=buffer -> BUFFER_API_KEY, BUFFER_INSTAGRAM_CHANNEL_ID
+#   - PUBLISHER=meta   -> IG_USER_ID, IG_ACCESS_TOKEN
+# Variables optionnelles (onglet "Variables", non sensibles) :
+#   - BUFFER_DEFAULT_TIMEZONE (défaut Europe/Paris), BUFFER_DEFAULT_TIME (défaut 10:00)
 
 on:
   workflow_dispatch:
@@ -49,6 +55,10 @@ jobs:
       - name: Publier
         env:
           PUBLISHER: ${{ github.event.inputs.publisher }}
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          BUFFER_INSTAGRAM_CHANNEL_ID: ${{ secrets.BUFFER_INSTAGRAM_CHANNEL_ID }}
+          BUFFER_DEFAULT_TIMEZONE: ${{ vars.BUFFER_DEFAULT_TIMEZONE }}
+          BUFFER_DEFAULT_TIME: ${{ vars.BUFFER_DEFAULT_TIME }}
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
           MEDIA_BASE: ${{ steps.media.outputs.base }}

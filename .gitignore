@@ -1,0 +1,3 @@
+# Secrets locaux — ne jamais committer de vraies clés.
+.env
+.env.local
