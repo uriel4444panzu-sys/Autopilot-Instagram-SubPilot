@@ -2,15 +2,15 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8" />
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://raw.githubusercontent.com data:; style-src 'self' 'unsafe-inline'; script-src 'self';" />
 <title>SubPilot Control Room</title>
+<link rel="icon" href="icon-256.png" />
 <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <div class="app">
     <aside class="sidebar">
       <div class="brand">
-        <img src="../../assets/icon-256.png" alt="" class="brand-logo" />
+        <img src="icon-256.png" alt="" class="brand-logo" />
         <div class="brand-text">
           <span class="brand-title">SubPilot</span>
           <span class="brand-subtitle">Control Room</span>
@@ -146,6 +146,7 @@
             <p><strong>Glisse une vidéo ici</strong> ou clique pour parcourir</p>
             <p class="hint">MP4, MOV — 90 Mo max</p>
           </div>
+          <input type="file" id="video-file-input" accept="video/mp4,video/quicktime,.mp4,.mov,.m4v" hidden />
           <div class="status-line" id="status-video-upload"></div>
         </div>
 
@@ -182,7 +183,7 @@
             <li>Permissions → <strong>Contents</strong> : Read and write, <strong>Actions</strong> : Read and write.</li>
             <li>Génère le jeton, copie-le, colle-le ci-dessous.</li>
           </ol>
-          <button class="btn btn-secondary" id="btn-open-token-page">Ouvrir GitHub</button>
+          <a class="btn btn-secondary" id="btn-open-token-page" href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">Ouvrir GitHub</a>
         </div>
 
         <div class="card">
@@ -207,6 +208,7 @@
           </div>
           <button class="btn btn-primary" id="btn-save-config">Connecter</button>
           <div class="status-line" id="status-config"></div>
+          <p class="hint" style="margin-top:10px">Le jeton est chiffré et stocké uniquement sur cet ordinateur, dans ton dossier utilisateur.</p>
         </div>
       </section>
 
@@ -215,6 +217,7 @@
 
   <div class="toast-container" id="toast-container"></div>
 
+  <script src="apiClient.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

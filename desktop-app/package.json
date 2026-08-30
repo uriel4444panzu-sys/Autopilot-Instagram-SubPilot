@@ -1,37 +1,12 @@
 {
   "name": "subpilot-control-room",
-  "productName": "SubPilot Control Room",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Bureau de contrôle SubPilot : génération de contenu, dépôt de vidéos, validation des brouillons.",
-  "main": "src/main.js",
+  "main": "server.js",
   "author": "SubPilot",
   "license": "UNLICENSED",
   "private": true,
   "scripts": {
-    "start": "electron .",
-    "build:win": "electron-builder --win"
-  },
-  "devDependencies": {
-    "electron": "^32.0.0",
-    "electron-builder": "^25.0.0"
-  },
-  "build": {
-    "appId": "com.subpilot.controlroom",
-    "productName": "SubPilot Control Room",
-    "files": [
-      "src/**/*",
-      "assets/**/*",
-      "package.json"
-    ],
-    "win": {
-      "target": ["nsis"],
-      "icon": "assets/icon.ico"
-    },
-    "nsis": {
-      "oneClick": false,
-      "allowToChangeInstallationDirectory": true,
-      "createDesktopShortcut": true,
-      "createStartMenuShortcut": true
-    }
+    "start": "node server.js"
   }
 }
