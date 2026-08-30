@@ -1,12 +1,15 @@
 name: Publier sur Instagram
 
-# Manuel (recommandé) : onglet Actions -> "Publier sur Instagram" -> Run workflow.
-#   - only_id vide  = publie tous les posts dus (date <= aujourd'hui) ;
-#   - only_id = id  = publie seulement ce post du calendar.json (validation à l'unité) ;
+# Auto : tourne chaque jour à 10:00 UTC et envoie à Buffer tout post
+# approuvé pas encore envoyé — même si sa date est dans plusieurs jours :
+# c'est Buffer qui programme (dueAt) et publie tout seul le bon jour. Un
+# post reste en attente tant qu'il n'a pas été approuvé dans l'app
+# (status: "approved").
+# Manuel (toujours possible) : onglet Actions -> "Publier sur Instagram" -> Run workflow.
+#   - only_id vide  = envoie tous les posts approuvés pas encore envoyés ;
+#   - only_id = id  = envoie seulement ce post du calendar.json (validation à l'unité) ;
 #   - dry_run true  = simule sans publier ;
 #   - publisher     = "buffer" (par défaut, nouveau) ou "meta" (ancien, pour rollback).
-# Auto (optionnel) : décommente le bloc "schedule". Reste désactivé tant que le
-# provider buffer n'a pas été validé manuellement (voir BUFFER_SETUP.md).
 #
 # Secrets requis (Settings -> Secrets and variables -> Actions) :
 #   - PUBLISHER=buffer -> BUFFER_API_KEY, BUFFER_INSTAGRAM_CHANNEL_ID
@@ -18,7 +21,7 @@ on:
   workflow_dispatch:
     inputs:
       only_id:
-        description: "Publier seulement ce post (id). Vide = tous les posts dus."
+        description: "Publier seulement ce post (id). Vide = tous les posts approuvés pas encore envoyés."
         required: false
         default: ""
       dry_run:
@@ -33,8 +36,8 @@ on:
         options:
           - buffer
           - meta
-  # schedule:
-  #   - cron: "0 10 * * *"   # chaque jour à 10:00 UTC
+  schedule:
+    - cron: "0 10 * * *" # chaque jour à 10:00 UTC
 
 permissions:
   contents: write
