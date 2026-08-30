@@ -1,0 +1,48 @@
+name: Generate Week (rythme par défaut, OpenAI)
+
+# Génère automatiquement le rythme de publication par défaut : 4 posts
+# feed + 4 stories pour la semaine à venir (lundi->dimanche), répartis
+# pour qu'aucun jour ne soit vide. Chaque brouillon a déjà sa date, mais
+# reste en status: "draft" — AUCUNE publication automatique, tout attend
+# ta validation manuelle (voir README / calendar.json).
+#
+# Déclenchement :
+#   - automatique chaque dimanche (prépare la semaine suivante à l'avance) ;
+#   - manuel à tout moment (onglet Actions -> "Generate Week" -> Run workflow).
+#
+# Secret requis : OPENAI_API_KEY
+
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "0 8 * * 0" # chaque dimanche à 8:00 UTC
+
+permissions:
+  contents: write
+
+jobs:
+  generate-week:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Generate Week
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_TEXT_MODEL: ${{ vars.OPENAI_TEXT_MODEL }}
+        run: node scripts/generate-week.js
+
+      - name: Committer les brouillons et images générées
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add calendar.json feed/ stories/
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: brouillons de la semaine générés (OpenAI) - à valider"
+            git push
+          else
+            echo "Rien à committer."
+          fi
