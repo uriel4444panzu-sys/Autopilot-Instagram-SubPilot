@@ -134,16 +134,17 @@ function buildAssets(post, mediaUrl) {
 /**
  * Métadonnée Instagram (post / story / reel).
  *
- * Confirmé par test réel (Test Buffer Publish, 30/08/2026) : le chemin
- * metadata.instagram.type existe bien (Buffer a validé la mutation et
- * renvoyé une erreur métier "Instagram posts require a type", pas une
- * erreur de schéma) — ce champ est OBLIGATOIRE pour tout post Instagram,
- * y compris "feed" (type POST), pas seulement story/reel comme supposé
- * initialement.
+ * Confirmé par deux tests réels (Test Buffer Publish, 30/08/2026) :
+ *   - metadata.instagram.type est OBLIGATOIRE pour tout post Instagram,
+ *     y compris "feed", et ses valeurs d'enum sont en minuscules
+ *     (post | story | reel), pas en majuscules.
+ *   - metadata.instagram.shouldShareToFeed (Boolean!) est également
+ *     obligatoire. true par défaut (comportement standard : le contenu
+ *     apparaît dans le feed principal).
  */
 function buildMetadata(post) {
-  const type = post.type === "story" ? "STORY" : post.type === "reel" ? "REEL" : "POST";
-  return { instagram: { type } };
+  const type = post.type === "story" ? "story" : post.type === "reel" ? "reel" : "post";
+  return { instagram: { type, shouldShareToFeed: true } };
 }
 
 /**
