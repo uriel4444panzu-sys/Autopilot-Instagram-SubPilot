@@ -32,7 +32,13 @@ function readJson(file, fallback) {
 }
 
 const todayISO = () => new Date().toISOString().slice(0, 10);
-const publicUrl = (rel) => MEDIA_BASE.replace(/\/?$/, "/") + rel.replace(/^\/+/, "");
+const publicUrl = (rel) =>
+  MEDIA_BASE.replace(/\/?$/, "/") +
+  rel
+    .replace(/^\/+/, "")
+    .split("/")
+    .map(encodeURIComponent)
+    .join("/");
 
 async function main() {
   if (!MEDIA_BASE) {

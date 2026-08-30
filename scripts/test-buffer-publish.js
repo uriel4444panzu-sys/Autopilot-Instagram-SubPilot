@@ -31,7 +31,12 @@ const DEFAULT_MEDIA = {
 };
 
 function publicUrl(rel) {
-  return MEDIA_BASE.replace(/\/?$/, "/") + rel.replace(/^\/+/, "");
+  const encodedRel = rel
+    .replace(/^\/+/, "")
+    .split("/")
+    .map(encodeURIComponent)
+    .join("/");
+  return MEDIA_BASE.replace(/\/?$/, "/") + encodedRel;
 }
 
 /** Formate un Date en { date, time } dans un fuseau IANA donné. */
