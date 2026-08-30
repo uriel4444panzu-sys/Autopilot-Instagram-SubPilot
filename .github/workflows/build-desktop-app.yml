@@ -8,6 +8,9 @@ name: Build Desktop App (Windows)
 on:
   workflow_dispatch: {}
 
+permissions:
+  contents: write
+
 jobs:
   build-windows:
     runs-on: windows-latest
@@ -32,3 +35,20 @@ jobs:
           name: SubPilot-Control-Room-Windows
           path: desktop-app/dist/*.exe
           retention-days: 90
+
+      - name: Pousser l'installateur sur une branche de livraison
+        shell: bash
+        run: |
+          EXE=$(ls dist/*.exe | head -n1)
+          rm -rf /tmp/deliver
+          mkdir -p /tmp/deliver
+          cp "$EXE" /tmp/deliver/
+          cd /tmp/deliver
+          git init -q
+          git checkout -q -b desktop-builds
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -q -m "build: $(basename "$EXE")"
+          git remote add origin "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git"
+          git push -f origin desktop-builds
