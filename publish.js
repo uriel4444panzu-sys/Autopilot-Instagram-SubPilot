@@ -53,7 +53,10 @@ async function main() {
   const log = readJson("published.json", {});
   const today = todayISO();
 
-  let due = calendar.filter((p) => !log[p.id]);
+  // Un post déjà "scheduled"/"published" n'est jamais retenté. Un post "failed"
+  // reste dans la file et sera retenté au prochain lancement (aucun échec Buffer
+  // ne doit faire disparaître un post).
+  let due = calendar.filter((p) => !log[p.id] || log[p.id].status === "failed");
   due = ONLY_ID ? due.filter((p) => p.id === ONLY_ID) : due.filter((p) => p.date <= today);
 
   if (!due.length) {
@@ -71,10 +74,20 @@ async function main() {
           mediaId: result.id,
           publisher: publisher.name,
           status: result.status,
+          ...(result.scheduledAt ? { scheduledAt: result.scheduledAt } : {}),
+          ...(result.publishedAt ? { publishedAt: result.publishedAt } : {}),
         };
       }
     } catch (error) {
       console.error(`❌ ${post.id} : ${error.message}`);
+      if (!DRY_RUN) {
+        log[post.id] = {
+          at: new Date().toISOString(),
+          publisher: publisher.name,
+          status: "failed",
+          publishError: error.message,
+        };
+      }
     }
   }
 

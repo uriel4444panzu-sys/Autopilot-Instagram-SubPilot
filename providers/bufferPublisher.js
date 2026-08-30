@@ -151,7 +151,7 @@ function buildMetadata(post) {
  * Programme un post Instagram via Buffer.
  * @param {object} post - entrée de calendar.json ({ id, type, image|video, caption, date, time?, timezone? }).
  * @param {object} ctx - { mediaUrl, dryRun }.
- * @returns {Promise<{ id: string, status: "scheduled" | "dry-run" }>}
+ * @returns {Promise<{ id: string, status: "scheduled" | "dry-run", scheduledAt?: string }>}
  */
 async function publishPost(post, ctx) {
   const channelId = process.env.BUFFER_INSTAGRAM_CHANNEL_ID;
@@ -197,7 +197,7 @@ async function publishPost(post, ctx) {
   if (!result?.post?.id) throw new Error("Buffer API: réponse inattendue (aucun post créé).");
 
   console.log(`  ✅ programmé sur Buffer (post id ${result.post.id})`);
-  return { id: result.post.id, status: "scheduled" };
+  return { id: result.post.id, status: "scheduled", scheduledAt: result.post.dueAt || dueAt };
 }
 
 /**
