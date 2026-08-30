@@ -345,6 +345,86 @@ function updateDraftsBadge(delta, absolute) {
   badge.hidden = next === 0;
 }
 
+/** Carte "+" en fin de grille pour générer un post de remplacement (date/type au choix). */
+function renderAddCard() {
+  const card = document.createElement("div");
+  card.className = "draft-card add-card";
+  card.innerHTML = `
+    <div class="add-card-body">
+      <span class="add-card-icon">＋</span>
+      <p class="add-card-title">Générer un nouveau post</p>
+      <div class="field">
+        <label>Date</label>
+        <input type="date" class="add-date" />
+      </div>
+      <div class="field">
+        <label>Type</label>
+        <select class="add-type">
+          <option value="feed">Feed</option>
+          <option value="story">Story</option>
+          <option value="reel">Reel</option>
+        </select>
+      </div>
+      <div class="field add-reel-video-field" hidden>
+        <label>Vidéo</label>
+        <select class="add-reel-video"></select>
+      </div>
+      <button class="btn btn-primary add-generate-btn">Générer</button>
+      <div class="status-line add-status"></div>
+    </div>
+  `;
+
+  const dateInput = card.querySelector(".add-date");
+  const typeSelect = card.querySelector(".add-type");
+  const reelField = card.querySelector(".add-reel-video-field");
+  const reelSelect = card.querySelector(".add-reel-video");
+  const generateBtn = card.querySelector(".add-generate-btn");
+  const statusId = `add-status-${Date.now()}`;
+  card.querySelector(".add-status").id = statusId;
+
+  typeSelect.addEventListener("change", async () => {
+    reelField.hidden = typeSelect.value !== "reel";
+    if (typeSelect.value === "reel" && !reelSelect.dataset.loaded) {
+      try {
+        const videos = await window.api.listVideos();
+        reelSelect.innerHTML = videos.map((v) => `<option value="${v.path}">${v.name}</option>`).join("");
+        reelSelect.dataset.loaded = "1";
+      } catch {
+        // liste vide si erreur, l'utilisateur verra un select vide
+      }
+    }
+  });
+
+  generateBtn.addEventListener("click", async () => {
+    const date = dateInput.value;
+    const type = typeSelect.value;
+    if (!date) {
+      setStatus(statusId, "Choisis une date.", "error");
+      return;
+    }
+    const inputs = { date, type };
+    if (type === "reel") {
+      if (!reelSelect.value) {
+        setStatus(statusId, "Choisis une vidéo (onglet Vidéos pour en déposer une).", "error");
+        return;
+      }
+      inputs.reel_video = reelSelect.value;
+    }
+    await withBusy(generateBtn, async () => {
+      try {
+        await window.api.dispatchWorkflow("single", inputs);
+        setStatus(statusId, "Lancé — ça prend environ 1 minute.", "success");
+        toast("Génération du post lancée", "success");
+        pollWorkflowCompletion("single", statusId, "Le nouveau post");
+      } catch (err) {
+        setStatus(statusId, err.message, "error");
+      }
+    });
+  });
+
+  return card;
+}
+
 async function loadDrafts() {
   const container = document.getElementById("drafts-list");
   const empty = document.getElementById("drafts-empty");
@@ -353,8 +433,9 @@ async function loadDrafts() {
     const posts = await window.api.listDrafts();
     const drafts = posts.filter((p) => p.status === "draft");
     updateDraftsBadge(0, drafts.length);
-    empty.hidden = drafts.length > 0;
+    empty.hidden = true;
     for (const post of drafts) container.appendChild(renderDraftCard(post));
+    container.appendChild(renderAddCard());
   } catch (err) {
     empty.hidden = false;
     empty.textContent = err.message;

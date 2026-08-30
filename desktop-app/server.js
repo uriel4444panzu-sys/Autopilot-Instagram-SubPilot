@@ -32,6 +32,7 @@ const WORKFLOWS = {
   week: "generate-week.yml",
   posts: "generate-posts.yml",
   image: "generate-image.yml",
+  single: "generate-single.yml",
 };
 
 // ── Stockage local (chiffrement léger, voir README : protection contre
