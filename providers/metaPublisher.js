@@ -30,7 +30,7 @@ async function waitReady(creationId, token) {
  * Publie immédiatement un post sur Instagram via l'API Graph.
  * @param {object} post - entrée de calendar.json ({ id, type, image|video, caption }).
  * @param {object} ctx - { mediaUrl, dryRun }.
- * @returns {Promise<{ id: string, status: "published" | "dry-run" }>}
+ * @returns {Promise<{ id: string, status: "published" | "dry-run", publishedAt?: string }>}
  */
 async function publishPost(post, ctx) {
   const IG_USER_ID = process.env.IG_USER_ID;
@@ -60,7 +60,7 @@ async function publishPost(post, ctx) {
   if (post.type === "reel") await waitReady(created.id, TOKEN);
   const published = await api(`${IG_USER_ID}/media_publish`, { creation_id: created.id }, TOKEN);
   console.log(`  ✅ publié (media id ${published.id})`);
-  return { id: published.id, status: "published" };
+  return { id: published.id, status: "published", publishedAt: new Date().toISOString() };
 }
 
 async function testConnection() {
