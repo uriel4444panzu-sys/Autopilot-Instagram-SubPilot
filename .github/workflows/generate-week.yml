@@ -2,18 +2,33 @@ name: Generate Week (rythme par défaut, OpenAI)
 
 # Génère automatiquement le rythme de publication par défaut : 4 posts
 # feed + 4 stories pour la semaine à venir (lundi->dimanche), répartis
-# pour qu'aucun jour ne soit vide. Chaque brouillon a déjà sa date, mais
-# reste en status: "draft" — AUCUNE publication automatique, tout attend
-# ta validation manuelle (voir README / calendar.json).
+# pour qu'aucun jour ne soit vide. Le jour qui cumule les deux types (et
+# le type qui démarre la semaine) varie d'une semaine à l'autre. Chaque
+# brouillon a déjà sa date, mais reste en status: "draft" — AUCUNE
+# publication automatique, tout attend ta validation manuelle.
+#
+# Pour insérer un reel cette semaine (remplace le créneau du jour choisi,
+# vidéo déjà présente dans le repo) : lance ce workflow manuellement avec
+# reel_day et reel_video renseignés.
 #
 # Déclenchement :
-#   - automatique chaque dimanche (prépare la semaine suivante à l'avance) ;
+#   - automatique chaque dimanche (prépare la semaine suivante à l'avance,
+#     sans reel puisque le cron ne peut pas fournir de vidéo) ;
 #   - manuel à tout moment (onglet Actions -> "Generate Week" -> Run workflow).
 #
 # Secret requis : OPENAI_API_KEY
 
 on:
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      reel_day:
+        description: "Jour à remplacer par un reel (0=lundi .. 6=dimanche), vide = pas de reel"
+        required: false
+        default: ""
+      reel_video:
+        description: "Chemin du fichier vidéo déjà présent dans le repo (ex: videos/mon-reel.mp4)"
+        required: false
+        default: ""
   schedule:
     - cron: "0 8 * * 0" # chaque dimanche à 8:00 UTC
 
@@ -33,6 +48,8 @@ jobs:
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           OPENAI_TEXT_MODEL: ${{ vars.OPENAI_TEXT_MODEL }}
+          REEL_DAY: ${{ github.event.inputs.reel_day }}
+          REEL_VIDEO: ${{ github.event.inputs.reel_video }}
         run: node scripts/generate-week.js
 
       - name: Committer les brouillons et images générées
