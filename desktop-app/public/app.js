@@ -96,6 +96,40 @@ function initSettings() {
 
 // ── Générer ──────────────────────────────────────────────────────────
 
+/** Vérifie périodiquement si le run GitHub Actions déclenché est terminé, et prévient. */
+function pollWorkflowCompletion(kind, statusId, label) {
+  const startedAt = Date.now();
+  const timeoutMs = 12 * 60 * 1000; // abandonne l'attente après 12 min (le run continue sur GitHub)
+  const intervalMs = 15000;
+
+  const tick = async () => {
+    if (Date.now() - startedAt > timeoutMs) {
+      setStatus(statusId, `${label} toujours en cours après 12 min — vérifie l'onglet Actions sur GitHub.`, "");
+      return;
+    }
+    try {
+      const runs = await window.api.workflowStatus(kind);
+      const recent = runs.find((r) => new Date(r.createdAt).getTime() >= startedAt - 5000);
+      if (recent && recent.status === "completed") {
+        if (recent.conclusion === "success") {
+          setStatus(statusId, `✅ ${label} terminée.`, "success");
+          toast(`${label} terminée`, "success");
+          loadDrafts();
+        } else {
+          setStatus(statusId, `❌ ${label} a échoué (${recent.conclusion}). Vérifie les logs sur GitHub.`, "error");
+          toast(`${label} a échoué`, "error");
+        }
+        return;
+      }
+    } catch {
+      // erreur transitoire (ex: token expiré entre-temps) : on retente au prochain tick.
+    }
+    setTimeout(tick, intervalMs);
+  };
+
+  setTimeout(tick, intervalMs);
+}
+
 function initGenerate() {
   document.getElementById("week-reel-toggle").addEventListener("change", (e) => {
     document.getElementById("week-reel-fields").hidden = !e.target.checked;
@@ -118,6 +152,7 @@ function initGenerate() {
         await window.api.dispatchWorkflow("week", inputs);
         setStatus("status-week", "Lancé sur GitHub Actions — ça prend quelques minutes (plusieurs images à générer).", "success");
         toast("Génération de la semaine lancée", "success");
+        pollWorkflowCompletion("week", "status-week", "La génération de la semaine");
       } catch (err) {
         setStatus("status-week", err.message, "error");
       }
@@ -132,6 +167,7 @@ function initGenerate() {
         await window.api.dispatchWorkflow("posts", { COUNT: count, POST_TYPE: type });
         setStatus("status-posts", "Lancé sur GitHub Actions — ça prend quelques minutes.", "success");
         toast("Génération du lot lancée", "success");
+        pollWorkflowCompletion("posts", "status-posts", "La génération du lot");
       } catch (err) {
         setStatus("status-posts", err.message, "error");
       }
@@ -151,6 +187,7 @@ function initGenerate() {
         await window.api.dispatchWorkflow("image", { PROMPT: prompt, IMAGE_TYPE: type, QUALITY: quality });
         setStatus("status-image", "Lancé sur GitHub Actions.", "success");
         toast("Génération d'image lancée", "success");
+        pollWorkflowCompletion("image", "status-image", "La génération d'image");
       } catch (err) {
         setStatus("status-image", err.message, "error");
       }
