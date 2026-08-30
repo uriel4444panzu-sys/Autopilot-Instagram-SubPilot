@@ -1,0 +1,66 @@
+name: Generate Image (OpenAI)
+
+# Déclenchement MANUEL uniquement : onglet Actions -> "Generate Image (OpenAI)" -> Run workflow.
+# Génère une image via l'API OpenAI (gpt-image-1) à partir d'un prompt, et
+# la committe dans feed/ ou stories/.
+#
+# Ne touche JAMAIS calendar.json : à toi d'assigner ensuite le fichier
+# généré au champ "image" d'un post.
+#
+# Secret requis : OPENAI_API_KEY
+
+on:
+  workflow_dispatch:
+    inputs:
+      prompt:
+        description: "Description de l'image à générer"
+        required: true
+      type:
+        description: "Type de visuel"
+        required: false
+        default: "feed"
+        type: choice
+        options:
+          - feed
+          - story
+      quality:
+        description: "Qualité (low, medium, high, auto)"
+        required: false
+        default: "auto"
+      output_name:
+        description: "Nom du fichier (optionnel, sans extension)"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+jobs:
+  generate-image:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Generate Image
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          PROMPT: ${{ github.event.inputs.prompt }}
+          IMAGE_TYPE: ${{ github.event.inputs.type }}
+          QUALITY: ${{ github.event.inputs.quality }}
+          OUTPUT_NAME: ${{ github.event.inputs.output_name }}
+        run: node scripts/generate-image.js
+
+      - name: Committer l'image générée
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add feed/ stories/
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: image générée (OpenAI)"
+            git push
+          else
+            echo "Rien à committer."
+          fi
