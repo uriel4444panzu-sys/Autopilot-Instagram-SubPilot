@@ -11,15 +11,8 @@ if errorlevel 1 (
   exit /b 1
 )
 
-if not exist node_modules (
-  echo Premiere installation, patiente une minute...
-  call npm install
-  if errorlevel 1 (
-    echo.
-    echo L'installation a echoue. Verifie ta connexion internet et relance ce fichier.
-    pause
-    exit /b 1
-  )
-)
-
-call npm start
+echo Demarrage de SubPilot Control Room...
+echo Le navigateur va s'ouvrir automatiquement. Laisse cette fenetre ouverte.
+echo.
+node server.js
+pause

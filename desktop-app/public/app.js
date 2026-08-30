@@ -70,10 +70,6 @@ async function refreshConnectionState() {
 }
 
 function initSettings() {
-  document.getElementById("btn-open-token-page").addEventListener("click", () => {
-    window.api.openExternal("https://github.com/settings/personal-access-tokens/new");
-  });
-
   document.getElementById("btn-save-config").addEventListener("click", async (e) => {
     const owner = document.getElementById("cfg-owner").value.trim();
     const repo = document.getElementById("cfg-repo").value.trim();
@@ -192,12 +188,13 @@ async function loadVideos() {
 
 function initVideos() {
   const dropzone = document.getElementById("video-dropzone");
+  const fileInput = document.getElementById("video-file-input");
 
-  async function handleUpload(localPath) {
-    if (!localPath) return;
-    setStatus("status-video-upload", `Envoi de ${localPath.split(/[\\/]/).pop()}…`);
+  async function handleUpload(file) {
+    if (!file) return;
+    setStatus("status-video-upload", `Envoi de ${file.name}…`);
     try {
-      const res = await window.api.uploadVideo(localPath);
+      const res = await window.api.uploadVideoFile(file);
       setStatus("status-video-upload", `✅ ${res.name} déposée dans le dépôt.`, "success");
       toast(`Vidéo déposée : ${res.name}`, "success");
       loadVideos();
@@ -206,9 +203,10 @@ function initVideos() {
     }
   }
 
-  dropzone.addEventListener("click", async () => {
-    const filePath = await window.api.pickVideo();
-    if (filePath) handleUpload(filePath);
+  dropzone.addEventListener("click", () => fileInput.click());
+  fileInput.addEventListener("change", () => {
+    if (fileInput.files[0]) handleUpload(fileInput.files[0]);
+    fileInput.value = "";
   });
 
   dropzone.addEventListener("dragover", (e) => {
@@ -220,7 +218,7 @@ function initVideos() {
     e.preventDefault();
     dropzone.classList.remove("dragover");
     const file = e.dataTransfer.files[0];
-    if (file && file.path) handleUpload(file.path);
+    if (file) handleUpload(file);
   });
 }
 
