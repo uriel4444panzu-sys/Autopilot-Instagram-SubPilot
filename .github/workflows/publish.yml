@@ -1,10 +1,15 @@
 name: Publier sur Instagram
 
-# Auto : tourne chaque jour à 10:00 UTC et envoie à Buffer tout post
-# approuvé pas encore envoyé — même si sa date est dans plusieurs jours :
-# c'est Buffer qui programme (dueAt) et publie tout seul le bon jour. Un
-# post reste en attente tant qu'il n'a pas été approuvé dans l'app
-# (status: "approved").
+# Auto (quasi instantané) : se déclenche dès qu'un commit modifie
+# calendar.json (ex: approbation d'un brouillon dans l'app), et envoie à
+# Buffer tout post approuvé pas encore envoyé — même si sa date est dans
+# plusieurs jours : c'est Buffer qui programme (dueAt) et publie tout
+# seul le bon jour. Un post reste en attente tant qu'il n'a pas été
+# approuvé dans l'app (status: "approved"). Un commit qui n'ajoute que
+# des brouillons (génération auto) déclenche aussi une exécution, mais
+# elle ne trouve rien à envoyer et se termine aussitôt (inoffensif).
+# Auto (filet de sécurité) : tourne aussi chaque jour à 10:00 UTC, au cas
+# où un commit sur calendar.json aurait été fait autrement (hors app).
 # Manuel (toujours possible) : onglet Actions -> "Publier sur Instagram" -> Run workflow.
 #   - only_id vide  = envoie tous les posts approuvés pas encore envoyés ;
 #   - only_id = id  = envoie seulement ce post du calendar.json (validation à l'unité) ;
@@ -38,6 +43,9 @@ on:
           - meta
   schedule:
     - cron: "0 10 * * *" # chaque jour à 10:00 UTC
+  push:
+    branches: ["main"]
+    paths: ["calendar.json"]
 
 permissions:
   contents: write
