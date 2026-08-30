@@ -482,6 +482,40 @@ code {
   font-size: 13px;
 }
 
+/* ── Carte "générer un post" (fin de grille Brouillons) ─────────────── */
+
+.add-card {
+  border-style: dashed;
+  background: transparent;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.add-card-body {
+  padding: 20px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: stretch;
+  text-align: center;
+}
+
+.add-card-icon {
+  font-size: 22px;
+  color: var(--accent-indigo);
+  margin-bottom: 2px;
+}
+
+.add-card-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-dim);
+  margin: 0 0 6px;
+}
+
+.add-card .field { text-align: left; margin-bottom: 8px; }
+.add-card .btn { margin-top: 4px; }
+
 /* ── Toasts ──────────────────────────────────────────────────────── */
 
 .toast-container {

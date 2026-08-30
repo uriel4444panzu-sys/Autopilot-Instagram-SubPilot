@@ -1,0 +1,67 @@
+name: Generate Single Post
+
+# Génère UN SEUL post (caption + hashtags + image) pour une date et un
+# type précis, en BROUILLON (status: "draft"). Utile pour remplacer un
+# post supprimé/rejeté sans regénérer tout un lot.
+#
+# Déclenchement manuel uniquement.
+#
+# Secret requis : OPENAI_API_KEY
+
+on:
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "Date du post (YYYY-MM-DD)"
+        required: true
+      type:
+        description: "Type de post"
+        required: false
+        default: "feed"
+        type: choice
+        options:
+          - feed
+          - story
+          - reel
+      reel_video:
+        description: "Chemin de la vidéo (requis seulement si type=reel, ex: videos/x.mp4)"
+        required: false
+        default: ""
+      quality:
+        description: "Qualité image (low, medium, high, auto)"
+        required: false
+        default: "auto"
+
+permissions:
+  contents: write
+
+jobs:
+  generate-single:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Generate Single Post
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_TEXT_MODEL: ${{ vars.OPENAI_TEXT_MODEL }}
+          DATE: ${{ github.event.inputs.date }}
+          TYPE: ${{ github.event.inputs.type }}
+          REEL_VIDEO: ${{ github.event.inputs.reel_video }}
+          IMAGE_QUALITY: ${{ github.event.inputs.quality }}
+        run: node scripts/generate-single.js
+
+      - name: Committer le brouillon et l'image générée
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add calendar.json feed/ stories/
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: brouillon généré (OpenAI) - à valider"
+            git push
+          else
+            echo "Rien à committer."
+          fi
