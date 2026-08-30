@@ -1,0 +1,34 @@
+name: Build Desktop App (Windows)
+
+# Construit l'installateur Windows de SubPilot Control Room sur un vrai
+# runner Windows (pas de souci de compatibilité/signature type wine).
+# Déclenchement manuel uniquement. L'installateur est déposé en artifact
+# du run (téléchargeable depuis l'onglet Actions, disponible ~90 jours).
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    defaults:
+      run:
+        working-directory: desktop-app
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Installer les dépendances
+        run: npm ci
+
+      - name: Construire l'installateur Windows
+        run: npm run build:win
+
+      - name: Publier l'installateur
+        uses: actions/upload-artifact@v4
+        with:
+          name: SubPilot-Control-Room-Windows
+          path: desktop-app/dist/*.exe
+          retention-days: 90
