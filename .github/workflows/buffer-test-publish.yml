@@ -1,0 +1,61 @@
+name: Publish Test Post (Buffer)
+
+# Déclenchement MANUEL uniquement : onglet Actions -> "Publish Test Post (Buffer)" -> Run workflow.
+#
+# ⚠️ Programme un VRAI post de test sur Buffer (image ou vidéo déjà présente
+# dans le repo), à l'heure choisie. Il partira réellement sur Instagram à
+# cette heure, sauf si tu le supprimes avant depuis la file d'attente Buffer.
+#
+# Ne touche JAMAIS calendar.json ni published.json : indépendant du
+# calendrier réel, ne peut pas déclencher un vrai post existant.
+#
+# Secrets requis : BUFFER_API_KEY, BUFFER_INSTAGRAM_CHANNEL_ID
+
+on:
+  workflow_dispatch:
+    inputs:
+      type:
+        description: "Type de post de test"
+        required: false
+        default: "feed"
+        type: choice
+        options:
+          - feed
+          - story
+          - reel
+      minutes_from_now:
+        description: "Programmer dans combien de minutes"
+        required: false
+        default: "60"
+      confirm:
+        description: 'Tape "yes" pour confirmer la programmation réelle sur Buffer'
+        required: true
+        default: "no"
+
+permissions:
+  contents: read
+
+jobs:
+  publish-test-post:
+    if: ${{ github.event.inputs.confirm == 'yes' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Calculer l'URL publique des médias (raw.githubusercontent)
+        id: media
+        run: echo "base=https://raw.githubusercontent.com/${{ github.repository }}/${{ github.ref_name }}/" >> "$GITHUB_OUTPUT"
+
+      - name: Publish Test Post
+        env:
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          BUFFER_INSTAGRAM_CHANNEL_ID: ${{ secrets.BUFFER_INSTAGRAM_CHANNEL_ID }}
+          BUFFER_DEFAULT_TIMEZONE: ${{ vars.BUFFER_DEFAULT_TIMEZONE }}
+          MEDIA_BASE: ${{ steps.media.outputs.base }}
+          TEST_POST_TYPE: ${{ github.event.inputs.type }}
+          TEST_MINUTES_FROM_NOW: ${{ github.event.inputs.minutes_from_now }}
+          CONFIRM: ${{ github.event.inputs.confirm }}
+        run: node scripts/test-buffer-publish.js
