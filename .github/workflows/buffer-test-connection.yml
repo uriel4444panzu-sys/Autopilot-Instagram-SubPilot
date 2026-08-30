@@ -1,0 +1,30 @@
+name: Test Buffer Connection
+
+# Déclenchement MANUEL uniquement : onglet Actions -> "Test Buffer Connection" -> Run workflow.
+# Vérifie l'authentification Buffer et liste les channels disponibles.
+# Ne publie jamais rien, ne touche ni calendar.json ni published.json.
+#
+# Secrets requis : BUFFER_API_KEY
+# Secret optionnel : BUFFER_INSTAGRAM_CHANNEL_ID (si absent, ce workflow
+#   liste simplement tous les channels pour t'aider à trouver le bon id).
+
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  test-connection:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Test Buffer Connection
+        env:
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          BUFFER_INSTAGRAM_CHANNEL_ID: ${{ secrets.BUFFER_INSTAGRAM_CHANNEL_ID }}
+        run: node scripts/test-buffer-connection.js
