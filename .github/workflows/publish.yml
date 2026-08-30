@@ -3,8 +3,10 @@ name: Publier sur Instagram
 # Manuel (recommandé) : onglet Actions -> "Publier sur Instagram" -> Run workflow.
 #   - only_id vide  = publie tous les posts dus (date <= aujourd'hui) ;
 #   - only_id = id  = publie seulement ce post du calendar.json (validation à l'unité) ;
-#   - dry_run true  = simule sans publier.
-# Auto (optionnel) : décommente le bloc "schedule".
+#   - dry_run true  = simule sans publier ;
+#   - publisher     = "buffer" (par défaut, nouveau) ou "meta" (ancien, pour rollback).
+# Auto (optionnel) : décommente le bloc "schedule". Reste désactivé tant que le
+# provider buffer n'a pas été validé manuellement (voir BUFFER_SETUP.md).
 
 on:
   workflow_dispatch:
@@ -17,6 +19,14 @@ on:
         description: "Tester sans publier (true/false)"
         required: false
         default: "false"
+      publisher:
+        description: "Provider de publication (buffer ou meta)"
+        required: false
+        default: "buffer"
+        type: choice
+        options:
+          - buffer
+          - meta
   # schedule:
   #   - cron: "0 10 * * *"   # chaque jour à 10:00 UTC
 
@@ -38,6 +48,7 @@ jobs:
 
       - name: Publier
         env:
+          PUBLISHER: ${{ github.event.inputs.publisher }}
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
           MEDIA_BASE: ${{ steps.media.outputs.base }}
