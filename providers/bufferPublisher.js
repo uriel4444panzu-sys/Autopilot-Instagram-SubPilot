@@ -134,17 +134,24 @@ function buildAssets(post, mediaUrl) {
 /**
  * Métadonnée Instagram (post / story / reel).
  *
- * Confirmé par deux tests réels (Test Buffer Publish, 30/08/2026) :
+ * Confirmé par des tests réels (Test Buffer Publish, 30/08/2026) :
  *   - metadata.instagram.type est OBLIGATOIRE pour tout post Instagram,
  *     y compris "feed", et ses valeurs d'enum sont en minuscules
  *     (post | story | reel), pas en majuscules.
  *   - metadata.instagram.shouldShareToFeed (Boolean!) est également
- *     obligatoire. true par défaut (comportement standard : le contenu
- *     apparaît dans le feed principal).
+ *     obligatoire.
+ *
+ * shouldShareToFeed=false par défaut : un reel/story avec true crée EN
+ * PLUS une publication séparée dans la grille du feed (constaté en
+ * conditions réelles : un post de test reel s'est retrouvé en double,
+ * une fois comme reel et une fois comme post feed distinct). Un post
+ * "feed" ignore ce champ de toute façon puisqu'il EST déjà un post feed.
+ * Ajustable par post via calendar.json ("shareToFeed": true) si un jour
+ * un cross-post reel->feed est vraiment voulu.
  */
 function buildMetadata(post) {
   const type = post.type === "story" ? "story" : post.type === "reel" ? "reel" : "post";
-  return { instagram: { type, shouldShareToFeed: true } };
+  return { instagram: { type, shouldShareToFeed: post.shareToFeed === true } };
 }
 
 /**
