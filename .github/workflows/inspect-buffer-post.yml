@@ -1,0 +1,33 @@
+name: Inspect Buffer Post (diagnostic)
+
+# Déclenchement MANUEL uniquement. Outil de diagnostic en lecture seule :
+# affiche ce que Buffer a réellement enregistré pour un post (texte,
+# statut, assets). Ne publie rien, ne modifie rien.
+#
+# Secrets requis : BUFFER_API_KEY, BUFFER_INSTAGRAM_CHANNEL_ID
+
+on:
+  workflow_dispatch:
+    inputs:
+      post_id:
+        description: "Id du post Buffer à inspecter"
+        required: true
+
+permissions:
+  contents: read
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Inspect Buffer Post
+        env:
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          BUFFER_INSTAGRAM_CHANNEL_ID: ${{ secrets.BUFFER_INSTAGRAM_CHANNEL_ID }}
+          POST_ID: ${{ github.event.inputs.post_id }}
+        run: node scripts/inspect-buffer-post.js
