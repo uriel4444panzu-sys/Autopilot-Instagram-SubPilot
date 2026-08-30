@@ -1,11 +1,13 @@
 name: Publier sur Instagram
 
-# Auto : tourne chaque jour à 10:00 UTC et publie tous les posts approuvés
-# dont la date est arrivée (date <= aujourd'hui). Un post reste en attente
-# tant qu'il n'a pas été approuvé dans l'app (status: "approved").
+# Auto : tourne chaque jour à 10:00 UTC et envoie à Buffer tout post
+# approuvé pas encore envoyé — même si sa date est dans plusieurs jours :
+# c'est Buffer qui programme (dueAt) et publie tout seul le bon jour. Un
+# post reste en attente tant qu'il n'a pas été approuvé dans l'app
+# (status: "approved").
 # Manuel (toujours possible) : onglet Actions -> "Publier sur Instagram" -> Run workflow.
-#   - only_id vide  = publie tous les posts dus (date <= aujourd'hui) ;
-#   - only_id = id  = publie seulement ce post du calendar.json (validation à l'unité) ;
+#   - only_id vide  = envoie tous les posts approuvés pas encore envoyés ;
+#   - only_id = id  = envoie seulement ce post du calendar.json (validation à l'unité) ;
 #   - dry_run true  = simule sans publier ;
 #   - publisher     = "buffer" (par défaut, nouveau) ou "meta" (ancien, pour rollback).
 #
@@ -19,7 +21,7 @@ on:
   workflow_dispatch:
     inputs:
       only_id:
-        description: "Publier seulement ce post (id). Vide = tous les posts dus."
+        description: "Publier seulement ce post (id). Vide = tous les posts approuvés pas encore envoyés."
         required: false
         default: ""
       dry_run:
