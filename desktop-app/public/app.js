@@ -164,7 +164,7 @@ function initGenerate() {
     const type = document.getElementById("posts-type").value;
     await withBusy(e.target, async () => {
       try {
-        await window.api.dispatchWorkflow("posts", { COUNT: count, POST_TYPE: type });
+        await window.api.dispatchWorkflow("posts", { count, type });
         setStatus("status-posts", "Lancé sur GitHub Actions — ça prend quelques minutes.", "success");
         toast("Génération du lot lancée", "success");
         pollWorkflowCompletion("posts", "status-posts", "La génération du lot");
@@ -184,7 +184,7 @@ function initGenerate() {
     const quality = document.getElementById("image-quality").value;
     await withBusy(e.target, async () => {
       try {
-        await window.api.dispatchWorkflow("image", { PROMPT: prompt, IMAGE_TYPE: type, QUALITY: quality });
+        await window.api.dispatchWorkflow("image", { prompt, type, quality });
         setStatus("status-image", "Lancé sur GitHub Actions.", "success");
         toast("Génération d'image lancée", "success");
         pollWorkflowCompletion("image", "status-image", "La génération d'image");
