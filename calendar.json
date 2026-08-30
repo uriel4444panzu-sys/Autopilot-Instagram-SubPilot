@@ -54,5 +54,50 @@
     "type": "feed",
     "image": "feed/feed-03-ajouter.jpg",
     "caption": "Ajoute un abonnement en 10 secondes ⏱️\n\nColle un e-mail : SubPilot détecte le service, le prix et la prochaine échéance. Zéro saisie manuelle.\n\n👉 Teste, lien en bio.\n\n#abonnements #budget #applimobile #subpilot #productivite #financespersonnelles #economies #bonsplans"
+  },
+  {
+    "id": "draft-detection-automatique-depuis-un-e-mail-1788106299653-0",
+    "date": null,
+    "type": "feed",
+    "image": "feed/feed-scene-lifestyle-photo-realiste-jeune-actif-assis-a-une-table-1788106299650.png",
+    "caption": "Ta boîte mail peut retrouver tes abonnements pour toi 📩\nTransfère simplement un e-mail de confirmation à SubPilot.\nL’abonnement est détecté automatiquement, sans longue saisie.\nMoins d’administration, plus de contrôle sur tes dépenses.\nTeste gratuitement SubPilot via le lien en bio.\n\n#abonnements #detectionautomatique #gestionbudget #financespersonnelles #economies #subpilot #argent #applimobile #organisation #suividepenses",
+    "angle": "Détection automatique depuis un e-mail",
+    "status": "draft"
+  },
+  {
+    "id": "draft-alerte-avant-le-prochain-prelevement-1788106342807-1",
+    "date": null,
+    "type": "feed",
+    "image": "feed/feed-photo-realiste-d-un-jeune-actif-dans-une-cuisine-lumineuse-c-1788106342805.png",
+    "caption": "Le prélèvement surprise du lundi matin ? Très peu pour toi 😮‍💨\nSubPilot t’alerte avant chaque débit à venir.\nTu as le temps de vérifier, d’anticiper et de garder ton solde sous contrôle.\nTon compte bancaire te dira merci.\nQuel prélèvement t’a déjà pris de court ?\n\n#prelevement #alertes #abonnements #budget #financespersonnelles #argent #subpilot #rappels #gestionbudget #economies",
+    "angle": "Alerte avant le prochain prélèvement",
+    "status": "draft"
+  },
+  {
+    "id": "draft-anticiper-les-renouvellements-annuels-1788106378332-2",
+    "date": null,
+    "type": "feed",
+    "image": "feed/feed-mockup-photo-realiste-d-un-smartphone-pose-pres-d-un-agenda--1788106378330.png",
+    "caption": "Cet abonnement annuel que tu avais oublié revient bientôt 🗓️\nSubPilot te rappelle sa date de renouvellement avant l’échéance.\nTu peux décider tranquillement s’il mérite encore sa place dans ton budget.\nFini les engagements reconduits par oubli.\nRetrouve SubPilot gratuitement via le lien en bio.\n\n#renouvellement #abonnementannuel #rappels #budgetmalin #financespersonnelles #economies #subpilot #organisation #depenses #bonsplans",
+    "angle": "Anticiper les renouvellements annuels",
+    "status": "draft"
+  },
+  {
+    "id": "draft-subpilot-sur-mobile-et-sur-le-web-1788106418109-3",
+    "date": null,
+    "type": "feed",
+    "image": "feed/feed-scene-lifestyle-photo-realiste-dans-un-espace-de-travail-lum-1788106418108.png",
+    "caption": "Ton budget ne devrait pas rester coincé sur un seul écran 💻\nRetrouve SubPilot gratuitement sur iPhone, Android et le Web.\nConsulte tes abonnements au bureau, dans le métro ou depuis ton canapé.\nMême suivi, quel que soit ton appareil.\nTu gères plutôt ton budget sur mobile ou sur ordinateur ?\n\n#applimobile #applicationgratuite #iphone #android #applicationweb #abonnements #subpilot #budget #productivite #financespersonnelles",
+    "angle": "SubPilot sur mobile et sur le Web",
+    "status": "draft"
+  },
+  {
+    "id": "draft-eviter-la-conversion-oubliee-d-un-essai-gratuit-1788106462970-4",
+    "date": null,
+    "type": "feed",
+    "image": "feed/feed-photo-realiste-d-une-soiree-detendue-dans-un-salon-moderne-j-1788106462969.png",
+    "caption": "Gratuit aujourd’hui, prélevé automatiquement demain 😅\nAjoute la date de fin de ton essai dans SubPilot et programme un rappel.\nTu décides avant le renouvellement, pas après avoir vu le débit.\nDe quoi tester des services sans piéger ton budget.\nQuel essai gratuit as-tu déjà oublié d’annuler ?\n\n#essaigratuit #renouvellement #rappels #abonnements #economies #budget #financespersonnelles #subpilot #bonsplans #argent",
+    "angle": "Éviter la conversion oubliée d’un essai gratuit",
+    "status": "draft"
   }
 ]
