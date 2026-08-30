@@ -19,7 +19,7 @@ on:
       count:
         description: "Nombre de posts à générer"
         required: false
-        default: "5"
+        default: "7"
       type:
         description: "Type de post"
         required: false
