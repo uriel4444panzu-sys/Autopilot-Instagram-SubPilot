@@ -1,0 +1,58 @@
+[
+  {
+    "id": "j1-feed-presentation",
+    "date": "2026-09-01",
+    "type": "feed",
+    "image": "feed/feed-01-tableau-de-bord.jpg",
+    "caption": "Tu sais COMBIEN tu paies en abonnements chaque mois ? 😬\n\nSubPilot réunit tous tes abonnements au même endroit :\n📥 il les détecte depuis un simple e-mail\n🔔 te prévient avant chaque prélèvement\n✂️ et t'aide à résilier en 1 clic\n\n100% gratuit · iPhone · Android · Ordinateur\n👉 Lien en bio pour tester 🙏\n\n#abonnements #budget #financespersonnelles #economies #applimobile #appgratuite #bonsplans #subpilot #argent #buildinpublic"
+  },
+  {
+    "id": "j2-story-ajouter",
+    "date": "2026-09-02",
+    "type": "story",
+    "image": "stories/story-03-ajouter.jpg",
+    "caption": "Ajoute un abo en 10 secondes ⏱️"
+  },
+  {
+    "id": "j3-feed-budget",
+    "date": "2026-09-03",
+    "type": "feed",
+    "image": "feed/feed-04-budget.jpg",
+    "caption": "Tu dépasses ton budget sans le savoir ? 📊\n\nSubPilot te montre en un coup d'œil ce que tu paies chaque mois et si tu es au-dessus de ton budget.\n\n👉 Teste gratuitement, lien en bio.\n\n#budget #financespersonnelles #gerersonbudget #depenses #economies #subpilot #applimobile #suividepenses #moneytips"
+  },
+  {
+    "id": "j5-feed-resilier",
+    "date": "2026-09-05",
+    "type": "feed",
+    "image": "feed/feed-02-abonnements.jpg",
+    "caption": "Résilier un abo, c'est censé être galère ✂️\n\nSubPilot t'emmène directement à la page d'annulation du service. En 1 clic.\n\nQuel abo tu résilierais tout de suite ? 👇\n👉 App gratuite, lien en bio.\n\n#resiliation #abonnements #budget #bonsplans #financespersonnelles #subpilot #applimobile #economies"
+  },
+  {
+    "id": "j6-story-budget",
+    "date": "2026-09-06",
+    "type": "story",
+    "image": "stories/story-04-budget.jpg",
+    "caption": "Sais-tu si tu dépasses ton budget ? 🎯"
+  },
+  {
+    "id": "j8-feed-compte",
+    "date": "2026-09-08",
+    "type": "feed",
+    "image": "feed/feed-05-compte.jpg",
+    "caption": "Ton profil, tes réglages, tes rappels 🔔\n\nSubPilot te prévient avant chaque renouvellement, même l'app fermée. Fini les mauvaises surprises.\n\n👉 Gratuit, lien en bio.\n\n#rappels #abonnements #notifications #budget #financespersonnelles #subpilot #applimobile #organisation"
+  },
+  {
+    "id": "j10-story-tableau",
+    "date": "2026-09-10",
+    "type": "story",
+    "image": "stories/story-01-tableau-de-bord.jpg",
+    "caption": "Tous tes abos en un coup d'œil 👀"
+  },
+  {
+    "id": "j12-feed-ajouter",
+    "date": "2026-09-12",
+    "type": "feed",
+    "image": "feed/feed-03-ajouter.jpg",
+    "caption": "Ajoute un abonnement en 10 secondes ⏱️\n\nColle un e-mail : SubPilot détecte le service, le prix et la prochaine échéance. Zéro saisie manuelle.\n\n👉 Teste, lien en bio.\n\n#abonnements #budget #applimobile #subpilot #productivite #financespersonnelles #economies #bonsplans"
+  }
+]
