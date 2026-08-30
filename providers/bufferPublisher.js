@@ -12,13 +12,9 @@
  *   - guides/hosting-media.html       -> assets = URL publique obligatoire
  *   - guides/error-handling.html      -> union PostActionSuccess / MutationError
  *
- * ⚠️ Point non totalement confirmé : le nom exact du champ `metadata` pour
- * distinguer post / story / reel Instagram (le concept existe, cf.
- * developers.buffer.com/types/PostInputMetaData.html, mais la forme précise
- * n'a pas pu être récupérée). L'API GraphQL étant fortement typée, un nom de
- * champ incorrect fait échouer la mutation avec un message d'erreur clair
- * (aucune publication au mauvais format) — à vérifier lors du test manuel
- * de publication (étape 8) avant d'automatiser les stories/reels.
+ * Confirmé par test réel (Test Buffer Publish, 30/08/2026) : le champ
+ * metadata.instagram.type (POST | STORY | REEL) est OBLIGATOIRE pour tout
+ * post Instagram, y compris "feed" — voir buildMetadata() plus bas.
  *
  * Env requis : BUFFER_API_KEY, BUFFER_INSTAGRAM_CHANNEL_ID
  * Env optionnels : BUFFER_DEFAULT_TIMEZONE (défaut "Europe/Paris"),
@@ -136,14 +132,18 @@ function buildAssets(post, mediaUrl) {
 }
 
 /**
- * Métadonnée Instagram (post / story / reel). Champ non totalement confirmé
- * (voir en-tête du fichier) — si Buffer le rejette, l'erreur GraphQL exacte
- * remonte via publishPost() et rien n'est publié au mauvais format.
+ * Métadonnée Instagram (post / story / reel).
+ *
+ * Confirmé par test réel (Test Buffer Publish, 30/08/2026) : le chemin
+ * metadata.instagram.type existe bien (Buffer a validé la mutation et
+ * renvoyé une erreur métier "Instagram posts require a type", pas une
+ * erreur de schéma) — ce champ est OBLIGATOIRE pour tout post Instagram,
+ * y compris "feed" (type POST), pas seulement story/reel comme supposé
+ * initialement.
  */
 function buildMetadata(post) {
-  if (post.type === "story") return { instagram: { type: "STORY" } };
-  if (post.type === "reel") return { instagram: { type: "REEL" } };
-  return undefined;
+  const type = post.type === "story" ? "STORY" : post.type === "reel" ? "REEL" : "POST";
+  return { instagram: { type } };
 }
 
 /**
@@ -172,7 +172,7 @@ async function publishPost(post, ctx) {
     mode: "customScheduled",
     dueAt,
     assets: buildAssets(post, ctx.mediaUrl),
-    ...(metadata ? { metadata } : {}),
+    metadata,
   };
 
   const data = await graphqlRequest(
