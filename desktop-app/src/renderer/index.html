@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://raw.githubusercontent.com data:; style-src 'self' 'unsafe-inline'; script-src 'self';" />
+<title>SubPilot Control Room</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <img src="../../assets/icon-256.png" alt="" class="brand-logo" />
+        <div class="brand-text">
+          <span class="brand-title">SubPilot</span>
+          <span class="brand-subtitle">Control Room</span>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <button class="nav-item active" data-tab="generate">
+          <span class="nav-icon">✨</span> Générer
+        </button>
+        <button class="nav-item" data-tab="videos">
+          <span class="nav-icon">🎬</span> Vidéos
+        </button>
+        <button class="nav-item" data-tab="drafts">
+          <span class="nav-icon">🗂️</span> Brouillons
+          <span class="badge" id="drafts-badge" hidden>0</span>
+        </button>
+        <button class="nav-item" data-tab="settings">
+          <span class="nav-icon">⚙️</span> Réglages
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <span class="connection-dot" id="connection-dot"></span>
+        <span id="connection-label">Non connecté</span>
+      </div>
+    </aside>
+
+    <main class="content">
+
+      <!-- ── Générer ─────────────────────────────────────────── -->
+      <section class="tab-panel active" id="tab-generate">
+        <header class="panel-header">
+          <h1>Générer du contenu</h1>
+          <p class="subtitle">Caption, hashtags et visuels créés automatiquement, toujours en brouillon avant publication.</p>
+        </header>
+
+        <div class="card">
+          <div class="card-header">
+            <h2>Rythme de la semaine</h2>
+            <span class="pill">Recommandé</span>
+          </div>
+          <p class="card-text">4 posts + 4 stories, réparties pour qu'aucun jour ne soit vide. Dates assignées automatiquement.</p>
+
+          <label class="checkbox-row">
+            <input type="checkbox" id="week-reel-toggle" />
+            Ajouter un reel cette semaine
+          </label>
+
+          <div class="grid-2" id="week-reel-fields" hidden>
+            <div class="field">
+              <label>Jour du reel</label>
+              <select id="week-reel-day">
+                <option value="0">Lundi</option>
+                <option value="1">Mardi</option>
+                <option value="2">Mercredi</option>
+                <option value="3">Jeudi</option>
+                <option value="4">Vendredi</option>
+                <option value="5">Samedi</option>
+                <option value="6">Dimanche</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Vidéo (dans le dépôt)</label>
+              <select id="week-reel-video"></select>
+            </div>
+          </div>
+
+          <button class="btn btn-primary" id="btn-generate-week">Générer la semaine</button>
+          <div class="status-line" id="status-week"></div>
+        </div>
+
+        <div class="card">
+          <div class="card-header"><h2>Lot personnalisé</h2></div>
+          <p class="card-text">Choisis toi-même le nombre de posts et leur type.</p>
+          <div class="grid-2">
+            <div class="field">
+              <label>Nombre de posts</label>
+              <input type="number" id="posts-count" min="1" max="20" value="7" />
+            </div>
+            <div class="field">
+              <label>Type</label>
+              <select id="posts-type">
+                <option value="feed">Feed</option>
+                <option value="story">Story</option>
+              </select>
+            </div>
+          </div>
+          <button class="btn btn-secondary" id="btn-generate-posts">Générer le lot</button>
+          <div class="status-line" id="status-posts"></div>
+        </div>
+
+        <div class="card">
+          <div class="card-header"><h2>Image seule</h2></div>
+          <p class="card-text">Génère une image à partir d'un prompt, sans caption ni ajout au calendrier.</p>
+          <div class="field">
+            <label>Prompt</label>
+            <textarea id="image-prompt" rows="2" placeholder="Décris l'image que tu veux générer..."></textarea>
+          </div>
+          <div class="grid-2">
+            <div class="field">
+              <label>Type</label>
+              <select id="image-type">
+                <option value="feed">Feed</option>
+                <option value="story">Story</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Qualité</label>
+              <select id="image-quality">
+                <option value="auto">Auto</option>
+                <option value="low">Basse</option>
+                <option value="medium">Moyenne</option>
+                <option value="high">Haute</option>
+              </select>
+            </div>
+          </div>
+          <button class="btn btn-secondary" id="btn-generate-image">Générer l'image</button>
+          <div class="status-line" id="status-image"></div>
+        </div>
+      </section>
+
+      <!-- ── Vidéos ──────────────────────────────────────────── -->
+      <section class="tab-panel" id="tab-videos">
+        <header class="panel-header">
+          <h1>Vidéos</h1>
+          <p class="subtitle">Dépose une vidéo pour l'utiliser dans un reel — aucune génération vidéo automatique.</p>
+        </header>
+
+        <div class="card">
+          <div class="dropzone" id="video-dropzone">
+            <span class="dropzone-icon">⬆️</span>
+            <p><strong>Glisse une vidéo ici</strong> ou clique pour parcourir</p>
+            <p class="hint">MP4, MOV — 90 Mo max</p>
+          </div>
+          <div class="status-line" id="status-video-upload"></div>
+        </div>
+
+        <div class="card">
+          <div class="card-header"><h2>Vidéos disponibles</h2></div>
+          <div id="videos-list" class="list"></div>
+        </div>
+      </section>
+
+      <!-- ── Brouillons ──────────────────────────────────────── -->
+      <section class="tab-panel" id="tab-drafts">
+        <header class="panel-header">
+          <h1>Brouillons à valider</h1>
+          <p class="subtitle">Rien ne part en publication tant que tu n'as pas approuvé.</p>
+          <button class="btn btn-ghost" id="btn-refresh-drafts">↻ Actualiser</button>
+        </header>
+        <div id="drafts-list" class="drafts-grid"></div>
+        <p class="empty-state" id="drafts-empty" hidden>Aucun brouillon en attente pour le moment.</p>
+      </section>
+
+      <!-- ── Réglages ────────────────────────────────────────── -->
+      <section class="tab-panel" id="tab-settings">
+        <header class="panel-header">
+          <h1>Réglages</h1>
+          <p class="subtitle">Connecte l'app à ton dépôt GitHub avec un jeton d'accès personnel.</p>
+        </header>
+
+        <div class="card">
+          <div class="card-header"><h2>Créer ton jeton</h2></div>
+          <ol class="steps">
+            <li>Clique sur le bouton ci-dessous pour ouvrir la page de création sur GitHub.</li>
+            <li>Nom du jeton : par exemple <code>SubPilot Control Room</code>.</li>
+            <li>Repository access → <strong>Only select repositories</strong> → choisis ton dépôt SubPilot.</li>
+            <li>Permissions → <strong>Contents</strong> : Read and write, <strong>Actions</strong> : Read and write.</li>
+            <li>Génère le jeton, copie-le, colle-le ci-dessous.</li>
+          </ol>
+          <button class="btn btn-secondary" id="btn-open-token-page">Ouvrir GitHub</button>
+        </div>
+
+        <div class="card">
+          <div class="card-header"><h2>Connexion</h2></div>
+          <div class="grid-2">
+            <div class="field">
+              <label>Propriétaire du dépôt</label>
+              <input type="text" id="cfg-owner" />
+            </div>
+            <div class="field">
+              <label>Nom du dépôt</label>
+              <input type="text" id="cfg-repo" />
+            </div>
+          </div>
+          <div class="field">
+            <label>Branche</label>
+            <input type="text" id="cfg-branch" />
+          </div>
+          <div class="field">
+            <label>Jeton d'accès personnel</label>
+            <input type="password" id="cfg-token" placeholder="ghp_... ou github_pat_..." />
+          </div>
+          <button class="btn btn-primary" id="btn-save-config">Connecter</button>
+          <div class="status-line" id="status-config"></div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <div class="toast-container" id="toast-container"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
