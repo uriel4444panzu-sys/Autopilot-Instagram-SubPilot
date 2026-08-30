@@ -19,10 +19,11 @@
  * vidéo, elle, doit être fournie (pas de génération vidéo automatique).
  *
  * Contrairement à generate-posts.js (lot personnalisé, date au choix),
- * ce script assigne directement une vraie "date" à chaque brouillon
- * (la semaine qui suit le dernier post déjà présent dans calendar.json).
- * Ils restent en status: "draft" — la validation humaine reste
- * obligatoire (changer le status en "approved") avant toute publication.
+ * ce script assigne directement une vraie "date" à chaque brouillon : le
+ * prochain lundi à partir d'AUJOURD'HUI (jour d'exécution du script),
+ * jusqu'au dimanche suivant (7 jours). Ils restent en status: "draft" —
+ * la validation humaine reste obligatoire (changer le status en
+ * "approved", ou ajuster la date proposée) avant toute publication.
  *
  * Direction créative complète : voir scripts/lib/brand.js.
  *
@@ -141,9 +142,7 @@ async function main() {
   }
 
   const calendar = readJson("calendar.json", []);
-  const usedDates = calendar.map((p) => p.date).filter(Boolean).sort();
-  const latestDate = usedDates.length ? usedDates[usedDates.length - 1] : todayISO();
-  const weekStart = nextMonday(latestDate);
+  const weekStart = nextMonday(todayISO());
 
   const days = buildWeekTypes(weekStart);
   if (reelDay !== null) applyReelOverride(days, reelDay);
