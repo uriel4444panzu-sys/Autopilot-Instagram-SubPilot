@@ -1,0 +1,67 @@
+name: Generate Posts (batch, OpenAI)
+
+# Déclenchement MANUEL uniquement : onglet Actions -> "Generate Posts (batch, OpenAI)" -> Run workflow.
+#
+# Génère un LOT de posts complets (caption + hashtags + image) via l'API
+# OpenAI, avec des angles non-répétitifs par rapport aux posts déjà
+# présents dans calendar.json. Les ajoute en BROUILLON (status: "draft").
+#
+# Ne publie JAMAIS rien : publish.js ignore tout post dont le status
+# n'est pas "approved" (ou absent). Pour faire partir un brouillon,
+# édite calendar.json à la main : fixe une vraie "date" et retire le
+# champ "status" (ou passe-le à "approved").
+#
+# Secret requis : OPENAI_API_KEY
+
+on:
+  workflow_dispatch:
+    inputs:
+      count:
+        description: "Nombre de posts à générer"
+        required: false
+        default: "5"
+      type:
+        description: "Type de post"
+        required: false
+        default: "feed"
+        type: choice
+        options:
+          - feed
+          - story
+      quality:
+        description: "Qualité image (low, medium, high, auto)"
+        required: false
+        default: "auto"
+
+permissions:
+  contents: write
+
+jobs:
+  generate-posts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Generate Posts
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_TEXT_MODEL: ${{ vars.OPENAI_TEXT_MODEL }}
+          COUNT: ${{ github.event.inputs.count }}
+          POST_TYPE: ${{ github.event.inputs.type }}
+          IMAGE_QUALITY: ${{ github.event.inputs.quality }}
+        run: node scripts/generate-posts.js
+
+      - name: Committer les brouillons et images générées
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add calendar.json feed/ stories/
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: brouillons générés (OpenAI) - à valider"
+            git push
+          else
+            echo "Rien à committer."
+          fi
