@@ -76,6 +76,23 @@ async function main() {
   if (!token) throw new Error("BUFFER_API_KEY manquant.");
   if (!channelId) throw new Error("BUFFER_INSTAGRAM_CHANNEL_ID manquant.");
 
+  if (process.env.INTROSPECT) {
+    const data = await graphqlRequest(
+      token,
+      `
+      query IntrospectType($name: String!) {
+        __type(name: $name) {
+          name
+          fields { name type { name kind ofType { name kind } } }
+        }
+      }
+    `,
+      { name: process.env.INTROSPECT }
+    );
+    console.log(JSON.stringify(data.__type, null, 2));
+    return;
+  }
+
   const organizationId = await getOrganizationId();
   let posts = await listScheduledPosts(token, organizationId, channelId);
   if (onlyId) posts = posts.filter((p) => p.id === onlyId);
