@@ -56,21 +56,15 @@ async function deletePost(token, postId) {
     `
     mutation DeletePost($input: DeletePostInput!) {
       deletePost(input: $input) {
-        ... on PostActionSuccess {
-          post { id }
-        }
-        ... on MutationError {
-          message
-        }
+        success
       }
     }
   `,
     { input: { id: postId } }
   );
   const result = data.deletePost;
-  if (result?.message) throw new Error(`Buffer API: ${result.message}`);
-  if (!result?.post?.id) throw new Error("Buffer API: réponse inattendue (suppression non confirmée).");
-  return result.post.id;
+  if (!result?.success) throw new Error("Buffer API: réponse inattendue (suppression non confirmée).");
+  return postId;
 }
 
 async function main() {
