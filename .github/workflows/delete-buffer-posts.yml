@@ -1,0 +1,46 @@
+name: Delete Buffer Posts (nettoyage)
+
+# Liste (et, si demandé, supprime) les posts actuellement programmés sur
+# Buffer pour le channel Instagram configuré. Ne touche JAMAIS
+# calendar.json ni published.json — uniquement Buffer lui-même.
+#
+# SUPPRESSION IRRÉVERSIBLE côté Buffer.
+#   - dry_run true (défaut) = liste seulement, ne supprime rien.
+#   - dry_run false + only_id vide = supprime TOUS les posts programmés.
+#   - dry_run false + only_id = id  = supprime seulement ce post-là.
+#
+# Déclenchement manuel uniquement.
+#
+# Secrets requis : BUFFER_API_KEY, BUFFER_INSTAGRAM_CHANNEL_ID
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Lister seulement, sans supprimer (true/false)"
+        required: false
+        default: "true"
+      only_id:
+        description: "Id d'un post précis à supprimer (vide = tous les posts programmés)"
+        required: false
+        default: ""
+
+permissions:
+  contents: read
+
+jobs:
+  delete:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Delete Buffer Posts
+        env:
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          BUFFER_INSTAGRAM_CHANNEL_ID: ${{ secrets.BUFFER_INSTAGRAM_CHANNEL_ID }}
+          DRY_RUN: ${{ github.event.inputs.dry_run == 'false' && '0' || '1' }}
+          ONLY_ID: ${{ github.event.inputs.only_id }}
+        run: node scripts/delete-buffer-posts.js
