@@ -83,7 +83,9 @@ async function main() {
       query IntrospectType($name: String!) {
         __type(name: $name) {
           name
+          kind
           fields { name type { name kind ofType { name kind } } }
+          possibleTypes { name fields { name type { name kind ofType { name kind } } } }
         }
       }
     `,
