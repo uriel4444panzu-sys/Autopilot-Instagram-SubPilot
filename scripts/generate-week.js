@@ -11,19 +11,21 @@
  * l'autre (dérivés du numéro de semaine, donc déterministe/reproductible
  * mais pas figé).
  *
- * Reel optionnel : si REEL_DAY (0=lundi..6=dimanche) et REEL_VIDEO (chemin
- * du fichier vidéo déjà présent dans le repo) sont fournis, le créneau de
- * ce jour est remplacé par un reel (un reel à lui seul montre déjà une
- * forte activité, donc il remplace plutôt qu'il ne s'ajoute). Le hook/
- * caption/hashtags du reel sont générés par l'IA comme les autres ; la
- * vidéo, elle, doit être fournie (pas de génération vidéo automatique).
+ * Reel optionnel : si REEL_DAY (0=demain..6=dans 7 jours) et REEL_VIDEO
+ * (chemin du fichier vidéo déjà présent dans le repo) sont fournis, le
+ * créneau de ce jour est remplacé par un reel (un reel à lui seul montre
+ * déjà une forte activité, donc il remplace plutôt qu'il ne s'ajoute). Le
+ * hook/caption/hashtags du reel sont générés par l'IA comme les autres ;
+ * la vidéo, elle, doit être fournie (pas de génération vidéo automatique).
  *
  * Contrairement à generate-posts.js (lot personnalisé, date au choix),
- * ce script assigne directement une vraie "date" à chaque brouillon : le
- * prochain lundi à partir d'AUJOURD'HUI (jour d'exécution du script),
- * jusqu'au dimanche suivant (7 jours). Ils restent en status: "draft" —
- * la validation humaine reste obligatoire (changer le status en
- * "approved", ou ajuster la date proposée) avant toute publication.
+ * ce script assigne directement une vraie "date" à chaque brouillon : à
+ * partir de DEMAIN (jour suivant l'exécution du script), sur 7 jours —
+ * jamais ancré sur un jour de semaine fixe (lundi), pour que le premier
+ * contenu arrive toujours au plus tôt, quel que soit le jour où le script
+ * tourne. Ils restent en status: "draft" — la validation humaine reste
+ * obligatoire (changer le status en "approved", ou ajuster la date
+ * proposée) avant toute publication.
  *
  * Direction créative complète : voir scripts/lib/brand.js.
  *
@@ -43,7 +45,7 @@ const { generateAndSaveImage, slugify } = require("./generate-image.js");
 const { generatePostsBatch, buildHistory, checkDiversity } = require("./lib/brand.js");
 
 const DIR = path.join(__dirname, "..");
-const DAY_NAMES = ["lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche"];
+const DAY_NAMES_BY_WEEKDAY = ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"];
 
 function todayISO() {
   return new Date().toISOString().slice(0, 10);
@@ -55,12 +57,9 @@ function addDaysISO(dateStr, days) {
   return d.toISOString().slice(0, 10);
 }
 
-/** Lundi suivant strictement fromDateStr (jamais le jour même). */
-function nextMonday(fromDateStr) {
-  const d = new Date(`${fromDateStr}T00:00:00Z`);
-  const day = d.getUTCDay(); // 0=dimanche ... 6=samedi
-  const daysUntilNextMonday = ((8 - day) % 7) || 7;
-  return addDaysISO(fromDateStr, daysUntilNextMonday);
+/** Nom du jour de semaine réel (lundi..dimanche) pour une date donnée. */
+function dayNameForDate(dateStr) {
+  return DAY_NAMES_BY_WEEKDAY[new Date(`${dateStr}T00:00:00Z`).getUTCDay()];
 }
 
 /** Nombre entier arbitraire mais stable dérivé d'une date, pour varier le gabarit semaine après semaine. */
@@ -106,8 +105,9 @@ function applyReelOverride(days, reelDayOffset) {
 function flattenSlots(days, weekStart) {
   const slots = [];
   for (const day of days) {
+    const date = addDaysISO(weekStart, day.offset);
     for (const type of day.types) {
-      slots.push({ offset: day.offset, day: DAY_NAMES[day.offset], type, date: addDaysISO(weekStart, day.offset) });
+      slots.push({ offset: day.offset, day: dayNameForDate(date), type, date });
     }
   }
   return slots;
@@ -142,7 +142,7 @@ async function main() {
   }
 
   const calendar = readJson("calendar.json", []);
-  const weekStart = nextMonday(todayISO());
+  const weekStart = addDaysISO(todayISO(), 1); // toujours demain, jamais ancré sur un jour fixe
 
   const days = buildWeekTypes(weekStart);
   if (reelDay !== null) applyReelOverride(days, reelDay);

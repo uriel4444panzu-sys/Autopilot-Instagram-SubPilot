@@ -72,6 +72,8 @@ async function main() {
     return;
   }
 
+  const saveLog = () => fs.writeFileSync(path.join(DIR, "published.json"), JSON.stringify(log, null, 2) + "\n");
+
   for (const post of pending) {
     const mediaUrl = publicUrl(post.type === "reel" ? post.video : post.image);
     try {
@@ -97,9 +99,13 @@ async function main() {
         };
       }
     }
+    // Écrit après CHAQUE post (pas seulement à la fin) : si le job est
+    // interrompu (timeout, annulation) en cours de route, les posts déjà
+    // envoyés à Buffer restent enregistrés et ne seront jamais renvoyés en
+    // double au prochain lancement.
+    if (!DRY_RUN) saveLog();
   }
 
-  if (!DRY_RUN) fs.writeFileSync(path.join(DIR, "published.json"), JSON.stringify(log, null, 2) + "\n");
   console.log("Terminé.");
 }
 

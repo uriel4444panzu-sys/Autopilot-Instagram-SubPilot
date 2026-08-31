@@ -22,7 +22,7 @@ on:
   workflow_dispatch:
     inputs:
       reel_day:
-        description: "Jour à remplacer par un reel (0=lundi .. 6=dimanche), vide = pas de reel"
+        description: "Jour à remplacer par un reel (0=demain .. 6=dans 7 jours), vide = pas de reel"
         required: false
         default: ""
       reel_video:
