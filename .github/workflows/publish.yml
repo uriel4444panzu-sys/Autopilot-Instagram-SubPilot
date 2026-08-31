@@ -21,6 +21,14 @@ name: Publier sur Instagram
 #   - PUBLISHER=meta   -> IG_USER_ID, IG_ACCESS_TOKEN
 # Variables optionnelles (onglet "Variables", non sensibles) :
 #   - BUFFER_DEFAULT_TIMEZONE (défaut Europe/Paris), BUFFER_DEFAULT_TIME (défaut 10:00)
+#
+# IMPORTANT : approuver plusieurs brouillons coup sur coup déclenche
+# plusieurs exécutions (une par commit). Le groupe "concurrency" ci-dessous
+# les met en FILE D'ATTENTE (une seule à la fois, jamais en parallèle) —
+# sans ça, deux exécutions simultanées peuvent lire published.json avant
+# que l'autre ait fini d'écrire, et publier le même post deux fois sur
+# Buffer (doublons), ou se marquer "failed" alors que Buffer a bien reçu
+# le post (seul le commit de fin, en conflit avec l'autre run, échouait).
 
 on:
   workflow_dispatch:
@@ -49,6 +57,10 @@ on:
 
 permissions:
   contents: write
+
+concurrency:
+  group: publish-instagram
+  cancel-in-progress: false
 
 jobs:
   publish:
@@ -80,12 +92,18 @@ jobs:
       - name: Enregistrer les posts publiés
         if: ${{ github.event.inputs.dry_run != 'true' }}
         run: |
-          if ! git diff --quiet -- published.json; then
-            git config user.name "github-actions[bot]"
-            git config user.email "github-actions[bot]@users.noreply.github.com"
-            git add published.json
-            git commit -m "chore: journal des posts publiés"
-            git push
-          else
+          if git diff --quiet -- published.json; then
             echo "Aucun nouveau post publié."
+            exit 0
           fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add published.json
+          git commit -m "chore: journal des posts publiés"
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin "${GITHUB_REF_NAME}" && git push && exit 0
+            echo "Push refusé (probablement un autre commit entre-temps), nouvelle tentative ($i/5)..."
+            sleep 3
+          done
+          echo "::error::Impossible de pousser published.json après plusieurs tentatives."
+          exit 1
