@@ -28,6 +28,10 @@
           <span class="nav-icon">🗂️</span> Brouillons
           <span class="badge" id="drafts-badge" hidden>0</span>
         </button>
+        <button class="nav-item" data-tab="scheduled">
+          <span class="nav-icon">📅</span> Programmé
+          <span class="badge" id="scheduled-badge" hidden>0</span>
+        </button>
         <button class="nav-item" data-tab="settings">
           <span class="nav-icon">⚙️</span> Réglages
         </button>
@@ -167,6 +171,20 @@
         <p class="empty-state" id="drafts-empty" hidden>Aucun brouillon en attente pour le moment.</p>
       </section>
 
+      <!-- ── Programmé (Buffer) ─────────────────────────────── -->
+      <section class="tab-panel" id="tab-scheduled">
+        <header class="panel-header">
+          <h1>Programmé sur Buffer</h1>
+          <p class="subtitle">Ce qui est déjà envoyé à Buffer et en attente de publication.</p>
+          <div class="header-actions">
+            <button class="btn btn-ghost" id="btn-refresh-scheduled">↻ Actualiser</button>
+            <button class="btn btn-danger" id="btn-delete-all-scheduled">Tout supprimer</button>
+          </div>
+        </header>
+        <div id="scheduled-list" class="drafts-grid"></div>
+        <p class="empty-state" id="scheduled-empty" hidden>Rien de programmé sur Buffer pour le moment.</p>
+      </section>
+
       <!-- ── Réglages ────────────────────────────────────────── -->
       <section class="tab-panel" id="tab-settings">
         <header class="panel-header">
@@ -209,6 +227,21 @@
           <button class="btn btn-primary" id="btn-save-config">Connecter</button>
           <div class="status-line" id="status-config"></div>
           <p class="hint" style="margin-top:10px">Le jeton est chiffré et stocké uniquement sur cet ordinateur, dans ton dossier utilisateur.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-header"><h2>Buffer</h2></div>
+          <p class="card-text">Nécessaire uniquement pour voir/supprimer les posts déjà programmés depuis l'onglet "Programmé".</p>
+          <div class="field">
+            <label>Clé API Buffer</label>
+            <input type="password" id="cfg-buffer-key" placeholder="Clé API personnelle Buffer" />
+          </div>
+          <div class="field">
+            <label>Id du channel Instagram</label>
+            <input type="text" id="cfg-buffer-channel" />
+          </div>
+          <button class="btn btn-primary" id="btn-save-buffer-config">Connecter Buffer</button>
+          <div class="status-line" id="status-buffer-config"></div>
         </div>
       </section>
 
