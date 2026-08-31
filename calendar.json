@@ -271,5 +271,85 @@
     "hook": "Subir la date. Puis choisir avant.",
     "archetype": "G",
     "status": "approved"
+  },
+  {
+    "id": "draft-mardi-le-calme-financier-a-enfin-son-cockpit-1788181093440-0",
+    "date": "2026-09-01",
+    "type": "feed",
+    "image": "feed/feed-visuel-publicitaire-premium-au-format-instagram-feed-4-5-san-1788181093437.png",
+    "caption": "Il y a les mois qu’on traverse à l’aveugle… et ceux qu’on peut enfin lire clairement. SubPilot rassemble l’essentiel dans un tableau de bord pensé pour décider sans fouiller partout.\n\nPrends les commandes avec SubPilot.\n\n#subpilot #gestionbudget #abonnements #fintechfrance #budgetmensuel #applicationmobile #argentautrement #maitrisesonbudget #organisationfinanciere",
+    "hook": "Le calme financier a enfin son cockpit.",
+    "archetype": "A",
+    "status": "draft"
+  },
+  {
+    "id": "draft-mardi-pov-tes-renouvellements-ont-monte-une-fanfare-1788181148590-1",
+    "date": "2026-09-01",
+    "type": "story",
+    "image": "stories/story-story-instagram-verticale-9-16-sans-personnage-style-meme-ed-1788181148586.png",
+    "caption": "Ils n’étaient pas invités. Ils connaissent pourtant tous la date et ton moyen de paiement. 🎺\n\nPartage à la personne qui les découvre toujours trop tard.\n\n#humourbudget #abonnements #meme_francais #prelevement #renouvellement #depenses #vieadulte #budgetdujour #subpilot",
+    "hook": "POV : tes renouvellements ont monté une fanfare.",
+    "archetype": "C",
+    "status": "draft"
+  },
+  {
+    "id": "draft-mercredi-voir-venir-change-completement-la-decision-1788181196201-2",
+    "date": "2026-09-02",
+    "type": "story",
+    "image": "stories/story-story-instagram-9-16-centree-sur-une-fonctionnalite-sans-per-1788181196198.png",
+    "caption": "Une alerte avant le prélèvement, c’est le temps de vérifier si l’abonnement mérite encore sa place. Pas une mauvaise nouvelle découverte sur le relevé.\n\nActive tes alertes et décide à temps.\n\n#alertesbudget #prelevement #abonnements #gestionfinanciere #subpilot #rappels #budgetmalin #applicationbudget #anticipation",
+    "hook": "Voir venir change complètement la décision.",
+    "archetype": "E",
+    "status": "draft"
+  },
+  {
+    "id": "draft-jeudi-le-mois-affiche-le-prix-l-annee-raconte-la-depense-1788181224577-3",
+    "date": "2026-09-03",
+    "type": "feed",
+    "image": "feed/feed-infographie-instagram-feed-4-5-sans-personnage-lumineuse-et--1788181224576.png",
+    "caption": "Petit exercice utile : multiplie chaque tarif mensuel par 12. Le service ne change pas, mais la façon de juger son coût, oui.\n\nFais le calcul sur un abonnement aujourd’hui.\n\n#educationfinanciere #budgetannuel #depensesmensuelles #abonnements #astucebudget #financespersonnelles #economiser #budgetresponsable #subpilot #calculbudget",
+    "hook": "Le mois affiche le prix. L’année raconte la dépense.",
+    "archetype": "F",
+    "status": "draft"
+  },
+  {
+    "id": "draft-vendredi-l-automatique-n-est-pas-toujours-inevitable-1788181271926-4",
+    "date": "2026-09-04",
+    "type": "story",
+    "image": "stories/story-story-instagram-9-16-metaphore-3d-sans-personnage-cadrage-ma-1788181271925.png",
+    "caption": "Un renouvellement en entraîne parfois un autre, puis un autre… jusqu’à ce qu’on prenne enfin le temps de regarder la chaîne.\n\nLequel arrêterais-tu en premier ?\n\n#effetdomino #renouvellements #abonnements #depensesautomatiques #budget #metaphorevisuelle #fintech #subpilot #controlebudget",
+    "hook": "L’automatique n’est pas toujours inévitable.",
+    "archetype": "D",
+    "status": "draft"
+  },
+  {
+    "id": "draft-samedi-le-tapis-court-moins-vite-que-le-prelevement-1788181317166-5",
+    "date": "2026-09-05",
+    "type": "feed",
+    "image": "feed/feed-photographie-humoristique-realiste-au-format-instagram-feed--1788181317165.png",
+    "caption": "Bonne nouvelle : le tapis sert encore. Mauvaise nouvelle : pas vraiment à ce qui était prévu. 😅\n\nLe meilleur abonnement n’est pas celui qu’on espère reprendre « bientôt », c’est celui qu’on utilise vraiment.\n\nTague ton partenaire de motivation imaginaire.\n\n#humourfrancais #salledesport #abonnementfitness #depensesinutiles #viequotidienne #budgetmalin #triabonnements #subpilot #motivationfitness #economies",
+    "hook": "Le tapis court moins vite que le prélèvement.",
+    "archetype": "B",
+    "status": "draft"
+  },
+  {
+    "id": "draft-dimanche-deux-minutes-pour-remettre-le-mois-a-sa-place-1788181370652-6",
+    "date": "2026-09-06",
+    "type": "story",
+    "image": "stories/story-story-instagram-9-16-vue-zenithale-parfaitement-verticale-d--1788181370649.png",
+    "caption": "Pas besoin d’un grand tableur ni d’une heure de motivation. Un coup d’œil au budget, quelques choix, puis on passe à autre chose.\n\nOuvre SubPilot avant de préparer ta semaine.\n\n#rituelbudget #dimanchesoir #budgetmensuel #organisation #subpilot #financespersonnelles #preparersasemaine #applicationbudget #serenitefinanciere",
+    "hook": "Deux minutes pour remettre le mois à sa place.",
+    "archetype": "J",
+    "status": "draft"
+  },
+  {
+    "id": "draft-lundi-et-si-chaque-abonnement-devait-repasser-son-audition-1788181408341-7",
+    "date": "2026-09-07",
+    "type": "feed",
+    "image": "feed/feed-composition-artistique-surrealiste-au-format-instagram-feed--1788181408339.png",
+    "caption": "Le but n’est pas de tout couper. C’est de garder ce qui apporte vraiment quelque chose — et de ne plus financer le reste par habitude.\n\nAlors, qui passe au tour suivant ?\n\nFais passer le casting à tes abonnements.\n\n#consommationresponsable #triabonnements #budgetconscient #depenses #choixfinanciers #conceptcreatif #subpilot #economies #financespersonnelles #minimalismenumerique",
+    "hook": "Et si chaque abonnement devait repasser son audition ?",
+    "archetype": "I",
+    "status": "draft"
   }
 ]
