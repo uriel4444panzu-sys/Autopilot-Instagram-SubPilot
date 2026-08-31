@@ -191,5 +191,85 @@
     "archetype": "G",
     "concept": "Un avant/après abstrait oppose la charge mentale des abonnements dispersés à une vision centralisée dans SubPilot. La transition visuelle transforme un réseau confus d’échéances en une composition calme organisée autour de l’application.",
     "status": "approved"
+  },
+  {
+    "id": "draft-lundi-si-tes-abonnements-pesaient-vraiment-ta-balance-dirait-quoi-1788177312648-0",
+    "date": "2026-09-07",
+    "type": "story",
+    "image": "stories/story-story-instagram-verticale-9-16-composition-artistique-surrea-1788177312644.png",
+    "caption": "Musique, séries, stockage, sport, logiciels… Pris séparément, tout semble léger. Ensemble, la balance peut vite changer de côté.\n\nSondage : « Moins de 50 € » / « Plus de 50 € »\n\n#abonnements #budgetmensuel #financespersonnelles #depenses #argent #gestionbudget #economies #subpilot #storyinstagram",
+    "hook": "Si tes abonnements pesaient vraiment, ta balance dirait quoi ?",
+    "archetype": "I",
+    "status": "draft"
+  },
+  {
+    "id": "draft-mardi-le-chiffre-qui-remet-le-mois-en-perspective-1788177350589-1",
+    "date": "2026-09-08",
+    "type": "feed",
+    "image": "feed/feed-publication-instagram-4-5-mockup-publicitaire-premium-sans-p-1788177350587.png",
+    "caption": "Pas besoin de fouiller trois comptes et deux relevés pour comprendre le mois. Une vue claire suffit parfois à prendre une bien meilleure décision.\n\nDécouvre ton tableau de bord SubPilot.\n\n#subpilot #applicationbudget #abonnements #fintechfrance #budgetfacile #depensesmensuelles #gestionfinanciere #applicationmobile #maitrisesonbudget",
+    "hook": "Le chiffre qui remet le mois en perspective.",
+    "archetype": "A",
+    "status": "draft"
+  },
+  {
+    "id": "draft-mercredi-ils-ne-servent-plus-a-rien-mais-ils-commandent-encore-1788177404829-2",
+    "date": "2026-09-09",
+    "type": "story",
+    "image": "stories/story-story-instagram-verticale-9-16-scene-humoristique-photoreali-1788177404825.png",
+    "caption": "Le service que tu n’as pas ouvert depuis des mois vient encore de commander l’addition. Élégant. Régulier. Totalement évitable.\n\nSticker question : « Lequel squatte encore chez toi ? »\n\n#humourfrancais #abonnements #depensesinutiles #budget #economies #argentaufeminin #gestionbudget #subpilot #storydujour",
+    "hook": "Ils ne servent plus à rien, mais ils commandent encore.",
+    "archetype": "B",
+    "status": "draft"
+  },
+  {
+    "id": "draft-mercredi-tout-garder-par-defaut-c-est-aussi-une-decision-1788177443498-3",
+    "date": "2026-09-09",
+    "type": "feed",
+    "image": "feed/feed-publication-instagram-4-5-feature-spotlight-lumineux-et-grap-1788177443496.png",
+    "caption": "Faire le tri ne veut pas dire tout supprimer. C’est garder ce que tu utilises vraiment — et faciliter la résiliation du reste, sans transformer ça en mission du week-end.\n\nFais le point avec SubPilot.\n\n#subpilot #resiliation #abonnements #trier ses abonnements #budgetmalin #economiser #applicationfrancaise #financespersonnelles #depensesfixes",
+    "hook": "Tout garder par défaut, c’est aussi une décision.",
+    "archetype": "E",
+    "status": "draft"
+  },
+  {
+    "id": "draft-jeudi-le-prix-mensuel-cache-souvent-le-vrai-total-1788177479538-4",
+    "date": "2026-09-10",
+    "type": "feed",
+    "image": "feed/feed-publication-instagram-4-5-infographie-editoriale-minimaliste-1788177479536.png",
+    "caption": "Pour juger un abonnement, multiplie simplement son tarif mensuel par 12. Ce n’est pas une raison de tout couper : c’est une façon plus honnête de comparer son coût à son utilité réelle.\n\nEnregistre ce rappel pour ton prochain tri.\n\n#educationfinanciere #budget #calculbudget #abonnements #financespersonnelles #depensesannuelles #astucebudget #economies #subpilot #argent",
+    "hook": "Le prix mensuel cache souvent le vrai total.",
+    "archetype": "F",
+    "status": "draft"
+  },
+  {
+    "id": "draft-vendredi-quand-le-nom-te-dit-quelque-chose-mais-pas-le-montant-1788177525473-5",
+    "date": "2026-09-11",
+    "type": "story",
+    "image": "stories/story-story-instagram-verticale-9-16-meme-visuel-photorealiste-et--1788177525469.png",
+    "caption": "Indice n°1 : ça tombe tous les mois. Indice n°2 : personne ne se souvient de l’avoir utilisé récemment. 🕵️\n\nCurseur : niveau de suspicion\n\n#meme français #humourbudget #prelevement #abonnements #depenses #reactionmeme #budgetquotidien #subpilot #storyhumour",
+    "hook": "Quand le nom te dit quelque chose… mais pas le montant.",
+    "archetype": "C",
+    "status": "draft"
+  },
+  {
+    "id": "draft-samedi-ton-budget-ne-prend-pas-de-jour-off-1788177571283-6",
+    "date": "2026-09-12",
+    "type": "feed",
+    "image": "feed/feed-publication-instagram-4-5-scene-lifestyle-produit-sans-perso-1788177571281.png",
+    "caption": "Week-end, déplacement ou dimanche soir : tes dépenses récurrentes continuent leur trajet. Autant garder une vue claire de ton budget, sur le Web comme sur mobile.\n\nRetrouve SubPilot sur iPhone, Android et Web.\n\n#subpilot #budgetenvoyage #applicationweb #fintech #gestionbudget #abonnements #mobilite #depensesmensuelles #organisationfinanciere",
+    "hook": "Ton budget ne prend pas de jour off.",
+    "archetype": "J",
+    "status": "draft"
+  },
+  {
+    "id": "draft-dimanche-subir-la-date-puis-choisir-avant-1788177623879-7",
+    "date": "2026-09-13",
+    "type": "story",
+    "image": "stories/story-story-instagram-verticale-9-16-composition-avant-apres-divis-1788177623877.png",
+    "caption": "La différence n’est pas la date du prélèvement. C’est le moment où tu en prends connaissance. Une alerte en amont laisse le temps de choisir, au lieu de simplement constater.\n\nActive le suivi avec SubPilot.\n\n#anticiper #alertesbudget #abonnements #echeances #gestionfinanciere #budgetmensuel #financespersonnelles #subpilot #organisation #economies",
+    "hook": "Subir la date. Puis choisir avant.",
+    "archetype": "G",
+    "status": "draft"
   }
 ]
