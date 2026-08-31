@@ -27,6 +27,11 @@ window.api = {
   updateDraft: (id, changes) => request("PATCH", `/api/drafts/${encodeURIComponent(id)}`, { changes }),
   deleteDraft: (id) => request("DELETE", `/api/drafts/${encodeURIComponent(id)}`),
 
+  saveBufferConfig: (payload) => request("POST", "/api/buffer/config", payload),
+  listScheduled: () => request("GET", "/api/buffer/scheduled"),
+  deleteScheduled: (id) => request("DELETE", `/api/buffer/scheduled/${encodeURIComponent(id)}`),
+  deleteAllScheduled: () => request("POST", "/api/buffer/scheduled/delete-all"),
+
   listVideos: () => request("GET", "/api/videos"),
   uploadVideoFile: (file) =>
     new Promise((resolve, reject) => {

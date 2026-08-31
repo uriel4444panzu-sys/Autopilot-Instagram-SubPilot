@@ -209,6 +209,18 @@ html, body {
   top: 0;
 }
 
+.panel-header .header-actions {
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: flex;
+  gap: 8px;
+}
+
+.panel-header .header-actions .btn-ghost {
+  position: static;
+}
+
 /* ── Cards ───────────────────────────────────────────────────────── */
 
 .card {

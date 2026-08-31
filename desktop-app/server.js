@@ -17,6 +17,7 @@ const os = require("os");
 const crypto = require("crypto");
 const { exec } = require("child_process");
 const github = require("./src/github");
+const buffer = require("./src/buffer");
 
 const PORT = process.env.PORT || 5177;
 const PUBLIC_DIR = path.join(__dirname, "public");
@@ -70,6 +71,7 @@ function loadConfig() {
   try {
     const raw = JSON.parse(fs.readFileSync(CONFIG_PATH, "utf8"));
     if (raw.tokenEncrypted) raw.token = decrypt(raw.tokenEncrypted);
+    if (raw.bufferApiKeyEncrypted) raw.bufferApiKey = decrypt(raw.bufferApiKeyEncrypted);
     return raw;
   } catch {
     return { owner: DEFAULT_OWNER, repo: DEFAULT_REPO, branch: DEFAULT_BRANCH };
@@ -85,14 +87,34 @@ function saveConfig({ token, owner, repo, branch }) {
   };
   if (token) next.tokenEncrypted = encrypt(token);
   else if (current.tokenEncrypted) next.tokenEncrypted = current.tokenEncrypted;
+  if (current.bufferApiKeyEncrypted) next.bufferApiKeyEncrypted = current.bufferApiKeyEncrypted;
+  if (current.bufferChannelId) next.bufferChannelId = current.bufferChannelId;
   fs.mkdirSync(CONFIG_DIR, { recursive: true });
   fs.writeFileSync(CONFIG_PATH, JSON.stringify(next, null, 2));
   return next;
 }
 
+function saveBufferConfig({ bufferApiKey, bufferChannelId }) {
+  const current = loadConfig();
+  const next = { ...current };
+  delete next.token;
+  delete next.bufferApiKey;
+  if (bufferApiKey) next.bufferApiKeyEncrypted = encrypt(bufferApiKey);
+  if (bufferChannelId) next.bufferChannelId = bufferChannelId;
+  fs.mkdirSync(CONFIG_DIR, { recursive: true });
+  fs.writeFileSync(CONFIG_PATH, JSON.stringify(next, null, 2));
+  return loadConfig();
+}
+
 function requireConfig() {
   const cfg = loadConfig();
   if (!cfg.token) throw new Error("Aucun jeton GitHub configuré. Va dans Réglages.");
+  return cfg;
+}
+
+function requireBufferConfig() {
+  const cfg = loadConfig();
+  if (!cfg.bufferApiKey || !cfg.bufferChannelId) throw new Error("Clé API Buffer ou id de channel manquant. Va dans Réglages.");
   return cfg;
 }
 
@@ -181,7 +203,14 @@ function matchRoute(method, pathname) {
 
 route("GET", "/api/config", async () => {
   const cfg = loadConfig();
-  return { owner: cfg.owner || DEFAULT_OWNER, repo: cfg.repo || DEFAULT_REPO, branch: cfg.branch || DEFAULT_BRANCH, hasToken: Boolean(cfg.token) };
+  return {
+    owner: cfg.owner || DEFAULT_OWNER,
+    repo: cfg.repo || DEFAULT_REPO,
+    branch: cfg.branch || DEFAULT_BRANCH,
+    hasToken: Boolean(cfg.token),
+    hasBufferKey: Boolean(cfg.bufferApiKey),
+    bufferChannelId: cfg.bufferChannelId || "",
+  };
 });
 
 route("POST", "/api/config", async (_p, req) => {
@@ -196,6 +225,45 @@ route("GET", "/api/config/test", async () => {
   const cfg = requireConfig();
   const me = await github.getMe(cfg.token);
   return { ok: true, username: me.login };
+});
+
+route("POST", "/api/buffer/config", async (_p, req) => {
+  const body = await readJsonBody(req);
+  const saved = saveBufferConfig(body);
+  const cfg = requireBufferConfig();
+  const organizationId = await buffer.getOrganizationId(cfg.bufferApiKey);
+  await buffer.listScheduledPosts(cfg.bufferApiKey, organizationId, cfg.bufferChannelId);
+  return { ok: true, bufferChannelId: saved.bufferChannelId };
+});
+
+route("GET", "/api/buffer/scheduled", async () => {
+  const cfg = requireBufferConfig();
+  const organizationId = await buffer.getOrganizationId(cfg.bufferApiKey);
+  const posts = await buffer.listScheduledPosts(cfg.bufferApiKey, organizationId, cfg.bufferChannelId);
+  return posts;
+});
+
+route("DELETE", "/api/buffer/scheduled/:id", async (params) => {
+  const cfg = requireBufferConfig();
+  await buffer.deletePost(cfg.bufferApiKey, params.id);
+  return { ok: true };
+});
+
+route("POST", "/api/buffer/scheduled/delete-all", async () => {
+  const cfg = requireBufferConfig();
+  const organizationId = await buffer.getOrganizationId(cfg.bufferApiKey);
+  const posts = await buffer.listScheduledPosts(cfg.bufferApiKey, organizationId, cfg.bufferChannelId);
+  let deleted = 0;
+  const errors = [];
+  for (const post of posts) {
+    try {
+      await buffer.deletePost(cfg.bufferApiKey, post.id);
+      deleted++;
+    } catch (err) {
+      errors.push(`${post.id} : ${err.message}`);
+    }
+  }
+  return { ok: errors.length === 0, deleted, total: posts.length, errors };
 });
 
 route("POST", "/api/workflow/:kind/dispatch", async (params, req) => {

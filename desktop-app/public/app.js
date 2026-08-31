@@ -39,6 +39,7 @@ function initNav() {
       document.getElementById(`tab-${item.dataset.tab}`).classList.add("active");
       if (item.dataset.tab === "drafts") loadDrafts();
       if (item.dataset.tab === "videos") loadVideos();
+      if (item.dataset.tab === "scheduled") loadScheduled();
     });
   });
 }
@@ -50,6 +51,10 @@ async function refreshConnectionState() {
   document.getElementById("cfg-owner").value = cfg.owner;
   document.getElementById("cfg-repo").value = cfg.repo;
   document.getElementById("cfg-branch").value = cfg.branch;
+  document.getElementById("cfg-buffer-channel").value = cfg.bufferChannelId || "";
+  if (cfg.hasBufferKey) {
+    setStatus("status-buffer-config", "Buffer déjà connecté.", "success");
+  }
 
   const dot = document.getElementById("connection-dot");
   const label = document.getElementById("connection-label");
@@ -89,6 +94,25 @@ function initSettings() {
         refreshConnectionState();
       } catch (err) {
         setStatus("status-config", err.message, "error");
+      }
+    });
+  });
+
+  document.getElementById("btn-save-buffer-config").addEventListener("click", async (e) => {
+    const bufferApiKey = document.getElementById("cfg-buffer-key").value.trim();
+    const bufferChannelId = document.getElementById("cfg-buffer-channel").value.trim();
+    if (!bufferApiKey || !bufferChannelId) {
+      setStatus("status-buffer-config", "Renseigne la clé API et l'id du channel.", "error");
+      return;
+    }
+    await withBusy(e.target, async () => {
+      try {
+        await window.api.saveBufferConfig({ bufferApiKey, bufferChannelId });
+        setStatus("status-buffer-config", "Buffer connecté.", "success");
+        toast("Buffer connecté", "success");
+        document.getElementById("cfg-buffer-key").value = "";
+      } catch (err) {
+        setStatus("status-buffer-config", err.message, "error");
       }
     });
   });
@@ -446,6 +470,94 @@ function initDrafts() {
   document.getElementById("btn-refresh-drafts").addEventListener("click", loadDrafts);
 }
 
+// ── Programmé (Buffer) ──────────────────────────────────────────────
+
+function formatDueAt(iso) {
+  try {
+    return new Date(iso).toLocaleString("fr-FR", { weekday: "short", day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" });
+  } catch {
+    return iso;
+  }
+}
+
+function updateScheduledBadge(absolute) {
+  const badge = document.getElementById("scheduled-badge");
+  badge.textContent = String(absolute);
+  badge.hidden = absolute === 0;
+}
+
+function renderScheduledCard(post) {
+  const card = document.createElement("div");
+  card.className = "draft-card";
+
+  const body = document.createElement("div");
+  body.className = "draft-body";
+  body.innerHTML = `
+    <div class="draft-tags">
+      <span class="tag">📅 ${formatDueAt(post.dueAt)}</span>
+    </div>
+    <div class="draft-caption">${(post.text || "").replace(/\n/g, "<br>")}</div>
+    <div class="draft-actions">
+      <button class="btn btn-danger btn-delete-scheduled">✕ Supprimer</button>
+    </div>
+  `;
+  card.appendChild(body);
+
+  const deleteBtn = body.querySelector(".btn-delete-scheduled");
+  deleteBtn.addEventListener("click", async () => {
+    if (!confirm("Supprimer ce post de Buffer ? Cette action est irréversible.")) return;
+    await withBusy(deleteBtn, async () => {
+      try {
+        await window.api.deleteScheduled(post.id);
+        toast("Post supprimé de Buffer", "success");
+        card.remove();
+        updateScheduledBadge(document.querySelectorAll("#scheduled-list .draft-card").length);
+      } catch (err) {
+        toast(err.message, "error");
+      }
+    });
+  });
+
+  return card;
+}
+
+async function loadScheduled() {
+  const container = document.getElementById("scheduled-list");
+  const empty = document.getElementById("scheduled-empty");
+  container.innerHTML = "";
+  try {
+    const posts = await window.api.listScheduled();
+    updateScheduledBadge(posts.length);
+    empty.hidden = posts.length > 0;
+    for (const post of posts) container.appendChild(renderScheduledCard(post));
+  } catch (err) {
+    empty.hidden = false;
+    empty.textContent = err.message;
+  }
+}
+
+function initScheduled() {
+  document.getElementById("btn-refresh-scheduled").addEventListener("click", loadScheduled);
+
+  document.getElementById("btn-delete-all-scheduled").addEventListener("click", async (e) => {
+    const count = document.querySelectorAll("#scheduled-list .draft-card").length;
+    if (!count) {
+      toast("Rien à supprimer.", "info");
+      return;
+    }
+    if (!confirm(`Supprimer les ${count} post(s) programmé(s) sur Buffer ? Cette action est irréversible.`)) return;
+    await withBusy(e.target, async () => {
+      try {
+        const res = await window.api.deleteAllScheduled();
+        toast(`${res.deleted}/${res.total} post(s) supprimé(s)`, res.ok ? "success" : "error");
+        loadScheduled();
+      } catch (err) {
+        toast(err.message, "error");
+      }
+    });
+  });
+}
+
 // ── Démarrage ────────────────────────────────────────────────────────
 
 (async function init() {
@@ -454,6 +566,7 @@ function initDrafts() {
   initGenerate();
   initVideos();
   initDrafts();
+  initScheduled();
   await refreshConnectionState();
   loadVideos();
   loadDrafts();
