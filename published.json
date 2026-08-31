@@ -70,45 +70,106 @@
     "scheduledAt": "2026-09-15T08:00:00.000Z"
   },
   "draft-mercredi-9-99-parait-petit-jusqu-a-ce-qu-on-multiplie-1788114288836-2": {
-    "at": "2026-08-30T19:44:29.772Z",
+    "at": "2026-08-31T12:03:04.140Z",
+    "mediaId": "6a956d77b3d74210b0337507",
     "publisher": "buffer",
-    "status": "failed",
-    "publishError": "Buffer API: Scheduled posts limit reached. You have 10 scheduled posts out of 10 allowed."
+    "status": "scheduled",
+    "scheduledAt": "2026-09-16T08:00:00.000Z"
   },
   "draft-jeudi-la-semaine-prochaine-ne-devrait-pas-etre-une-surprise-1788114334598-3": {
-    "at": "2026-08-30T19:44:30.026Z",
+    "at": "2026-08-31T12:03:04.687Z",
+    "mediaId": "6a956d78d5b799c0755ab521",
     "publisher": "buffer",
-    "status": "failed",
-    "publishError": "Buffer API: Scheduled posts limit reached. You have 10 scheduled posts out of 10 allowed."
+    "status": "scheduled",
+    "scheduledAt": "2026-09-17T08:00:00.000Z"
   },
   "draft-vendredi-le-gang-des-c-est-seulement-4-99-1788114426263-5": {
-    "at": "2026-08-30T19:44:30.270Z",
+    "at": "2026-08-31T12:03:05.133Z",
+    "mediaId": "6a956d78aeaa4b4d3303cd0c",
     "publisher": "buffer",
-    "status": "failed",
-    "publishError": "Buffer API: Scheduled posts limit reached. You have 10 scheduled posts out of 10 allowed."
+    "status": "scheduled",
+    "scheduledAt": "2026-09-18T08:00:00.000Z"
   },
   "draft-samedi-le-menage-numerique-compte-aussi-1788114475752-6": {
-    "at": "2026-08-30T19:44:30.521Z",
+    "at": "2026-08-31T12:03:05.741Z",
+    "mediaId": "6a956d7981c7dfad08e4b093",
     "publisher": "buffer",
-    "status": "failed",
-    "publishError": "Buffer API: Scheduled posts limit reached. You have 10 scheduled posts out of 10 allowed."
+    "status": "scheduled",
+    "scheduledAt": "2026-09-19T08:00:00.000Z"
   },
   "draft-dimanche-commencer-lundi-sans-jouer-aux-devinettes-1788114516556-7": {
-    "at": "2026-08-30T19:44:30.794Z",
+    "at": "2026-08-31T12:03:06.146Z",
+    "mediaId": "6a956d79e7aba356c3c3af9d",
     "publisher": "buffer",
-    "status": "failed",
-    "publishError": "Buffer API: Scheduled posts limit reached. You have 10 scheduled posts out of 10 allowed."
+    "status": "scheduled",
+    "scheduledAt": "2026-09-20T08:00:00.000Z"
   },
   "draft-les-petites-fuites-font-les-gros-mois-1788118414399-0": {
-    "at": "2026-08-30T19:44:31.162Z",
+    "at": "2026-08-31T12:03:06.238Z",
     "publisher": "buffer",
     "status": "failed",
-    "publishError": "Buffer API: Scheduled posts limit reached. You have 10 scheduled posts out of 10 allowed."
+    "publishError": "Buffer API: Scheduled time must be in the future"
   },
   "draft-ton-cerveau-peut-arreter-de-faire-le-suivi-1788118451998-1": {
-    "at": "2026-08-30T19:44:31.575Z",
+    "at": "2026-08-31T12:03:06.553Z",
     "publisher": "buffer",
     "status": "failed",
-    "publishError": "Buffer API: Scheduled posts limit reached. You have 10 scheduled posts out of 10 allowed."
+    "publishError": "Buffer API: Scheduled time must be in the future"
+  },
+  "draft-lundi-si-tes-abonnements-pesaient-vraiment-ta-balance-dirait-quoi-1788177312648-0": {
+    "at": "2026-08-31T12:03:07.269Z",
+    "mediaId": "6a956d7baeaa4b4d3303cd51",
+    "publisher": "buffer",
+    "status": "scheduled",
+    "scheduledAt": "2026-09-07T08:00:00.000Z"
+  },
+  "draft-mardi-le-chiffre-qui-remet-le-mois-en-perspective-1788177350589-1": {
+    "at": "2026-08-31T12:03:07.667Z",
+    "mediaId": "6a956d7baeaa4b4d3303cd73",
+    "publisher": "buffer",
+    "status": "scheduled",
+    "scheduledAt": "2026-09-08T08:00:00.000Z"
+  },
+  "draft-mercredi-ils-ne-servent-plus-a-rien-mais-ils-commandent-encore-1788177404829-2": {
+    "at": "2026-08-31T12:03:08.116Z",
+    "mediaId": "6a956d7bb3d74210b03375ca",
+    "publisher": "buffer",
+    "status": "scheduled",
+    "scheduledAt": "2026-09-09T08:00:00.000Z"
+  },
+  "draft-mercredi-tout-garder-par-defaut-c-est-aussi-une-decision-1788177443498-3": {
+    "at": "2026-08-31T12:03:08.565Z",
+    "mediaId": "6a956d7cd5b799c0755ab57d",
+    "publisher": "buffer",
+    "status": "scheduled",
+    "scheduledAt": "2026-09-09T08:00:00.000Z"
+  },
+  "draft-jeudi-le-prix-mensuel-cache-souvent-le-vrai-total-1788177479538-4": {
+    "at": "2026-08-31T12:03:09.312Z",
+    "mediaId": "6a956d7de7aba356c3c3b03e",
+    "publisher": "buffer",
+    "status": "scheduled",
+    "scheduledAt": "2026-09-10T08:00:00.000Z"
+  },
+  "draft-vendredi-quand-le-nom-te-dit-quelque-chose-mais-pas-le-montant-1788177525473-5": {
+    "at": "2026-08-31T12:03:09.761Z",
+    "mediaId": "6a956d7da5d74d46d26d5c85",
+    "publisher": "buffer",
+    "status": "scheduled",
+    "scheduledAt": "2026-09-11T08:00:00.000Z"
+  },
+  "draft-samedi-ton-budget-ne-prend-pas-de-jour-off-1788177571283-6": {
+    "at": "2026-08-31T12:03:10.551Z",
+    "mediaId": "6a956d7ed5b799c0755ab5db",
+    "publisher": "buffer",
+    "status": "scheduled",
+    "scheduledAt": "2026-09-12T08:00:00.000Z"
+  },
+  "draft-dimanche-subir-la-date-puis-choisir-avant-1788177623879-7": {
+    "at": "2026-08-31T12:03:11.095Z",
+    "mediaId": "6a956d7ee7aba356c3c3b096",
+    "publisher": "buffer",
+    "status": "scheduled",
+    "scheduledAt": "2026-09-13T08:00:00.000Z"
   }
 }
