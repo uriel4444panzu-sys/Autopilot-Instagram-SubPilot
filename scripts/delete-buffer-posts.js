@@ -56,15 +56,21 @@ async function deletePost(token, postId) {
     `
     mutation DeletePost($input: DeletePostInput!) {
       deletePost(input: $input) {
-        success
+        ... on DeletePostSuccess {
+          id
+        }
+        ... on VoidMutationError {
+          message
+        }
       }
     }
   `,
     { input: { id: postId } }
   );
   const result = data.deletePost;
-  if (!result?.success) throw new Error("Buffer API: réponse inattendue (suppression non confirmée).");
-  return postId;
+  if (result?.message) throw new Error(`Buffer API: ${result.message}`);
+  if (!result?.id) throw new Error("Buffer API: réponse inattendue (suppression non confirmée).");
+  return result.id;
 }
 
 async function main() {
@@ -75,25 +81,6 @@ async function main() {
 
   if (!token) throw new Error("BUFFER_API_KEY manquant.");
   if (!channelId) throw new Error("BUFFER_INSTAGRAM_CHANNEL_ID manquant.");
-
-  if (process.env.INTROSPECT) {
-    const data = await graphqlRequest(
-      token,
-      `
-      query IntrospectType($name: String!) {
-        __type(name: $name) {
-          name
-          kind
-          fields { name type { name kind ofType { name kind } } }
-          possibleTypes { name fields { name type { name kind ofType { name kind } } } }
-        }
-      }
-    `,
-      { name: process.env.INTROSPECT }
-    );
-    console.log(JSON.stringify(data.__type, null, 2));
-    return;
-  }
 
   const organizationId = await getOrganizationId();
   let posts = await listScheduledPosts(token, organizationId, channelId);
