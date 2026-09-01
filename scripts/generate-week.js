@@ -42,7 +42,7 @@
 const fs = require("fs");
 const path = require("path");
 const { generateAndSaveImage, slugify } = require("./generate-image.js");
-const { generatePostsBatch, buildHistory, checkDiversity } = require("./lib/brand.js");
+const { generatePostsBatch, buildHistory, checkDiversity, checkStoryText } = require("./lib/brand.js");
 
 const DIR = path.join(__dirname, "..");
 const DAY_NAMES_BY_WEEKDAY = ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"];
@@ -181,12 +181,15 @@ ${history.length ? history.map((h) => `- ${h}`).join("\n") : "(aucun pour l'inst
     process.exit(1);
   }
 
-  const warnings = checkDiversity(
-    posts.filter((_, i) => slots[i].type !== "reel"),
-    count
-  );
+  const warnings = [
+    ...checkDiversity(
+      posts.filter((_, i) => slots[i].type !== "reel"),
+      count
+    ),
+    ...checkStoryText(posts.map((post, i) => ({ type: slots[i].type, visual_text: post.visual_text }))),
+  ];
   if (warnings.length) {
-    console.log("\n⚠️  Avertissements diversité (pas bloquant, à vérifier toi-même) :");
+    console.log("\n⚠️  Avertissements (pas bloquant, à vérifier toi-même) :");
     warnings.forEach((w) => console.log(`   - ${w}`));
   }
 

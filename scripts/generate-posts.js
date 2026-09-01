@@ -22,7 +22,7 @@
 const fs = require("fs");
 const path = require("path");
 const { generateAndSaveImage, slugify } = require("./generate-image.js");
-const { generatePostsBatch, buildHistory, checkDiversity } = require("./lib/brand.js");
+const { generatePostsBatch, buildHistory, checkDiversity, checkStoryText } = require("./lib/brand.js");
 
 const DIR = path.join(__dirname, "..");
 
@@ -65,9 +65,12 @@ ${history.length ? history.map((h) => `- ${h}`).join("\n") : "(aucun pour l'inst
   console.log(`Génération de ${count} post(s) "${type}" via ${model}...`);
   const posts = await generatePostsBatch({ apiKey, model, input, count });
 
-  const warnings = checkDiversity(posts, count);
+  const warnings = [
+    ...checkDiversity(posts, count),
+    ...checkStoryText(posts.map((post) => ({ type, visual_text: post.visual_text }))),
+  ];
   if (warnings.length) {
-    console.log("\n⚠️  Avertissements diversité (pas bloquant, à vérifier toi-même) :");
+    console.log("\n⚠️  Avertissements (pas bloquant, à vérifier toi-même) :");
     warnings.forEach((w) => console.log(`   - ${w}`));
   }
 
