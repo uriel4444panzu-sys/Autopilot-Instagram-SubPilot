@@ -18,7 +18,7 @@
 const fs = require("fs");
 const path = require("path");
 const { generateAndSaveImage, slugify } = require("./generate-image.js");
-const { generatePostsBatch, buildHistory } = require("./lib/brand.js");
+const { generatePostsBatch, buildHistory, checkStoryText } = require("./lib/brand.js");
 
 const DIR = path.join(__dirname, "..");
 
@@ -68,6 +68,12 @@ ${history.length ? history.map((h) => `- ${h}`).join("\n") : "(aucun pour l'inst
   const [post] = await generatePostsBatch({ apiKey, model, input, count: 1 });
 
   console.log(`Hook : ${post.hook}`);
+
+  const warnings = checkStoryText([{ type, visual_text: post.visual_text }]);
+  if (warnings.length) {
+    console.log("\n⚠️  Avertissement (pas bloquant, à vérifier toi-même) :");
+    warnings.forEach((w) => console.log(`   - ${w}`));
+  }
 
   let mediaField;
   if (type === "reel") {

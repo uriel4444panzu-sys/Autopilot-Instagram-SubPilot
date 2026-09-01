@@ -88,8 +88,21 @@ TEXTE DANS LE VISUEL : privilégie des accroches extrêmement courtes
 (ex: "71 € par mois. Vraiment ?", "Tu paies encore ça ?", "Tout au même
 endroit.", "Où part ton argent ?", "7 apps. Ou une seule.", "Tes
 abonnements sous contrôle."). Ne transforme jamais l'image en affiche
-remplie de texte. Si aucun texte n'est pertinent, mets "visual_text":
-"NONE".
+remplie de texte.
+
+Dès que "visual_text" n'est pas "NONE", tu DOIS le décrire explicitement
+dans "image_prompt" comme du texte à afficher sur l'image (police, taille,
+position, couleur/contraste) — sans cette description précise, le
+générateur d'image ne saura pas qu'il faut écrire quoi que ce soit et
+produira un visuel sans texte.
+
+RÈGLE SELON LE TYPE DE CRÉNEAU : Instagram n'affiche JAMAIS la caption
+sur une story (contrairement au feed, où elle apparaît juste en dessous
+de l'image). Pour un créneau de type "story", "visual_text" est donc
+OBLIGATOIRE (jamais "NONE") : le visuel doit se suffire à lui-même et
+faire passer le message sans caption visible. Pour un créneau de type
+"feed", "visual_text" reste optionnel — mets "NONE" si aucun texte n'est
+pertinent, la caption étant de toute façon visible en dessous.
 
 TON : alterne humour, frustration relatable, pédagogie, premium,
 démonstration produit, curiosité, comparaison, problème→solution.
@@ -225,6 +238,22 @@ function checkDiversity(posts, count) {
   return warnings;
 }
 
+/**
+ * Avertit (sans bloquer) si un créneau "story" se retrouve sans texte
+ * visuel — Instagram n'affiche jamais la caption sur une story, donc un
+ * tel post arriverait totalement muet, sans message.
+ * @param {{ type: string, visual_text: string }[]} entries
+ */
+function checkStoryText(entries) {
+  const warnings = [];
+  entries.forEach((entry, i) => {
+    if (entry.type === "story" && (!entry.visual_text || entry.visual_text === "NONE")) {
+      warnings.push(`Créneau ${i + 1} (story) sans texte visuel : la story n'affichera aucun message (la caption n'est pas visible sur une story).`);
+    }
+  });
+  return warnings;
+}
+
 module.exports = {
   ARCHETYPES,
   SCREENSHOT_KEYS,
@@ -232,4 +261,5 @@ module.exports = {
   generatePostsBatch,
   buildHistory,
   checkDiversity,
+  checkStoryText,
 };
