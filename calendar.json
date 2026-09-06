@@ -351,5 +351,85 @@
     "hook": "Et si chaque abonnement devait repasser son audition ?",
     "archetype": "I",
     "status": "approved"
+  },
+  {
+    "id": "draft-lundi-et-si-ton-budget-arretait-de-jouer-a-cache-cache-1788695937022-0",
+    "date": "2026-09-07",
+    "type": "story",
+    "image": "stories/story-story-instagram-verticale-9-16-mockup-publicitaire-fintech-p-1788695937019.png",
+    "caption": "Tes abonnements sont peut-être dispersés. Leur suivi, lui, n’a aucune raison de l’être.\n\nRetrouve-les dans SubPilot.\n\n#gestionabonnements #budgetmensuel #fintechfrance #applicationmobile #suivibudget #economies #organisationfinanciere #subpilot",
+    "hook": "Et si ton budget arrêtait de jouer à cache-cache ?",
+    "archetype": "A",
+    "status": "draft"
+  },
+  {
+    "id": "draft-mardi-reunion-urgente-qui-preleve-cette-semaine-1788695979210-1",
+    "date": "2026-09-08",
+    "type": "feed",
+    "image": "feed/feed-visuel-feed-instagram-4-5-photographie-de-miniature-humorist-1788695979207.png",
+    "caption": "Ils ne se connaissent pas, mais ils ont tous choisi la même semaine. Coïncidence ? Le comité refuse de commenter.\n\nEnvoie ce post à la personne qui redoute son relevé.\n\n#humourbudget #prelevements #abonnements #depensesmensuelles #budgetperso #humourfrancais #argentaufeminin #gestionbudget #subpilot",
+    "hook": "Réunion urgente : qui prélève cette semaine ?",
+    "archetype": "B",
+    "status": "draft"
+  },
+  {
+    "id": "draft-mercredi-nouvel-abonnement-signe-ne-le-laisse-pas-devenir-invisible-1788696027669-2",
+    "date": "2026-09-09",
+    "type": "story",
+    "image": "stories/story-story-instagram-verticale-9-16-feature-spotlight-lumineux-et-1788696027667.png",
+    "caption": "Le suivi est beaucoup plus simple quand il commence en même temps que l’abonnement, pas trois mois plus tard au détour d’un relevé.\n\nAjoute le prochain dès sa souscription.\n\n#nouvelabonnement #gestiondepenses #applicationfinanciere #budgetmalin #organisationbudget #astucebudget #fintech #subpilot",
+    "hook": "Nouvel abonnement signé ? Ne le laisse pas devenir invisible.",
+    "archetype": "E",
+    "status": "draft"
+  },
+  {
+    "id": "draft-mercredi-l-inutilise-a-quand-meme-un-tarif-1788696060786-3",
+    "date": "2026-09-09",
+    "type": "feed",
+    "image": "feed/feed-infographie-feed-instagram-4-5-au-style-editorial-contempora-1788696060783.png",
+    "caption": "Huit euros semblent anodins. Trois fois huit euros, douze mois de suite, le sont nettement moins. Faire le total annuel aide souvent à décider ce qui mérite vraiment de rester.\n\nFais le calcul avec tes abonnements les moins utilisés.\n\n#educationfinanciere #calculbudget #economiser #depensesinutiles #budgetannuel #financespersonnelles #astuceeconomies #consommationresponsable #subpilot",
+    "hook": "L’inutilisé a quand même un tarif.",
+    "archetype": "F",
+    "status": "draft"
+  },
+  {
+    "id": "draft-jeudi-ta-carte-a-t-elle-sa-propre-galaxie-recurrente-1788696097880-4",
+    "date": "2026-09-10",
+    "type": "feed",
+    "image": "feed/feed-visuel-feed-instagram-4-5-metaphore-3d-surrealiste-sur-fond--1788696097879.png",
+    "caption": "Chaque orbite paraît minuscule. Ensemble, elles peuvent pourtant attirer une part très réelle du budget. Laquelle mérite encore de tourner autour de ta carte ?\n\n#metaphorevisuelle #abonnements #cartebancaire #budgetpersonnel #depensesrecurrentes #argent #gestionfinanciere #design3d #subpilot",
+    "hook": "Ta carte a-t-elle sa propre galaxie récurrente ?",
+    "archetype": "D",
+    "status": "draft"
+  },
+  {
+    "id": "draft-vendredi-tu-changes-d-adresse-tes-prelevements-eux-connaissent-encore-1788696154627-5",
+    "date": "2026-09-11",
+    "type": "story",
+    "image": "stories/story-story-instagram-verticale-9-16-scene-lifestyle-realiste-en-l-1788696154625.png",
+    "caption": "Déménagement, nouveau travail, fin des études… Les changements de vie sont de bons rappels pour vérifier si les anciennes dépenses ont encore leur place.\n\nProfite du changement pour faire le tri.\n\n#demenagement #tridesabonnements #nouvellevie #budgetquotidien #financespersonnelles #depensesfixes #organisation #consommationmaline #subpilot",
+    "hook": "Tu changes d’adresse. Tes prélèvements, eux, connaissent encore le chemin.",
+    "archetype": "H",
+    "status": "draft"
+  },
+  {
+    "id": "draft-samedi-avant-le-panier-regarde-ce-qui-est-deja-reserve-1788696195418-6",
+    "date": "2026-09-12",
+    "type": "feed",
+    "image": "feed/feed-visuel-feed-instagram-4-5-product-in-context-photographique--1788696195417.png",
+    "caption": "Le budget des courses ne commence pas au supermarché. Il commence avec ce qui est déjà engagé pour le mois. Voir cette part permet de faire le reste des choix avec un peu plus de justesse.\n\nConsulte ton budget avant la prochaine dépense.\n\n#budgetcourses #budgetfamilial #depensesmensuelles #gestionbudget #coursesmalines #applicationbudget #financesduquotidien #organisationfinanciere #subpilot",
+    "hook": "Avant le panier, regarde ce qui est déjà réservé.",
+    "archetype": "J",
+    "status": "draft"
+  },
+  {
+    "id": "draft-dimanche-qui-tient-vraiment-les-fils-de-tes-depenses-1788696244074-7",
+    "date": "2026-09-13",
+    "type": "story",
+    "image": "stories/story-story-instagram-verticale-9-16-composition-artistique-theatr-1788696244072.png",
+    "caption": "Les dépenses automatiques ont tendance à devenir invisibles. Les rendre visibles, c’est déjà commencer à décider au lieu de simplement laisser faire.\n\nReprends la main avec SubPilot.\n\n#conceptcreatif #depensesautomatiques #reprendrelecontrole #budgetmensuel #abonnements #fintechfrance #gestionargent #artdigital #subpilot",
+    "hook": "Qui tient vraiment les fils de tes dépenses ?",
+    "archetype": "I",
+    "status": "draft"
   }
 ]
