@@ -268,5 +268,12 @@
     "publisher": "buffer",
     "status": "scheduled",
     "scheduledAt": "2026-09-11T08:00:00.000Z"
+  },
+  "draft-samedi-avant-le-panier-regarde-ce-qui-est-deja-reserve-1788696195418-6": {
+    "at": "2026-09-07T21:43:26.343Z",
+    "mediaId": "6a9f2ffedbc5ce1b616117cb",
+    "publisher": "buffer",
+    "status": "scheduled",
+    "scheduledAt": "2026-09-12T08:00:00.000Z"
   }
 }
