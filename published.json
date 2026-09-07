@@ -240,5 +240,12 @@
     "publisher": "buffer",
     "status": "scheduled",
     "scheduledAt": "2026-09-08T08:00:00.000Z"
+  },
+  "draft-mercredi-nouvel-abonnement-signe-ne-le-laisse-pas-devenir-invisible-1788696027669-2": {
+    "at": "2026-09-07T21:42:53.646Z",
+    "mediaId": "6a9f2fdd630f873cd78c30db",
+    "publisher": "buffer",
+    "status": "scheduled",
+    "scheduledAt": "2026-09-09T08:00:00.000Z"
   }
 }
