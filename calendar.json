@@ -386,5 +386,85 @@
     "hook": "Qui tient vraiment les fils de tes dépenses ?",
     "archetype": "I",
     "status": "approved"
+  },
+  {
+    "id": "draft-lundi-le-desordre-n-a-pas-besoin-d-un-autre-tableur-1789304901321-0",
+    "date": "2026-09-14",
+    "type": "feed",
+    "image": "feed/feed-format-instagram-carre-1080-1080-photographie-publicitaire-3-1789304901318.png",
+    "caption": "Les notes éparpillées, les relevés ouverts dans douze onglets et le fameux « je vérifierai plus tard » peuvent prendre leur retraite. SubPilot rassemble l’essentiel pour lire son mois sans refaire toute sa comptabilité.\n\nDécouvre ton tableau de bord SubPilot.\n\n#subpilot #abonnements #gestionbudget #financespersonnelles #budgetmensuel #applicationmobile #fintechfr #organisation #depenses #budgetfacile",
+    "hook": "Le désordre n’a pas besoin d’un autre tableur.",
+    "archetype": "A",
+    "status": "draft"
+  },
+  {
+    "id": "draft-mardi-le-service-teste-une-fois-on-se-revoit-le-mois-prochain-1789304943983-1",
+    "date": "2026-09-15",
+    "type": "story",
+    "image": "stories/story-story-verticale-1080-1920-meme-visuel-tres-lisible-et-legere-1789304943979.png",
+    "caption": "Certains essais gratuits ont visiblement du mal à comprendre que l’histoire devait s’arrêter là.\n\nVérifie ce qui revient avec SubPilot.\n\n#abonnementoublie #essaiGratuit #humourfrancais #depenses #budget #prelevement #subpilot #memefrancais #argent #viequotidienne",
+    "hook": "Le service testé une fois : « On se revoit le mois prochain ? »",
+    "archetype": "C",
+    "status": "draft"
+  },
+  {
+    "id": "draft-mercredi-un-abonnement-passe-ou-casse-en-trois-questions-1789304974661-2",
+    "date": "2026-09-16",
+    "type": "feed",
+    "image": "feed/feed-format-instagram-carre-1080-1080-infographie-editoriale-mini-1789304974658.png",
+    "caption": "Pour faire le tri, demande-toi simplement : est-ce que je l’utilise vraiment, est-ce qu’un autre service fait déjà la même chose, et quand l’ai-je ouvert pour la dernière fois ? Une réponse hésitante mérite au moins une vérification.\n\nEnregistre ce mini-audit pour ton prochain tri.\n\n#educationfinanciere #abonnements #astucebudget #financespersonnelles #economies #gestionargent #budgetmalin #subpilot #depensesmensuelles #consommationresponsable",
+    "hook": "Un abonnement passe ou casse en trois questions.",
+    "archetype": "F",
+    "status": "draft"
+  },
+  {
+    "id": "draft-jeudi-ta-boite-mail-connait-deja-une-partie-de-la-reponse-1789305017002-3",
+    "date": "2026-09-17",
+    "type": "story",
+    "image": "stories/story-story-verticale-1080-1920-composition-technologique-dynamiqu-1789305017000.png",
+    "caption": "SubPilot peut détecter automatiquement des abonnements depuis un e-mail, pour éviter de repartir de zéro au moment de faire l’inventaire.\n\nTeste la détection automatique.\n\n#subpilot #detectionautomatique #abonnements #boitemail #gestionbudget #application #automatisation #fintech #organisationdigitale #gainDeTemps",
+    "hook": "Ta boîte mail connaît déjà une partie de la réponse.",
+    "archetype": "E",
+    "status": "draft"
+  },
+  {
+    "id": "draft-vendredi-vendredi-soir-le-frigo-est-vide-les-prelevements-ont-dine-1789305055754-4",
+    "date": "2026-09-18",
+    "type": "feed",
+    "image": "feed/feed-format-instagram-carre-1080-1080-scene-humoristique-photorea-1789305055753.png",
+    "caption": "On avait prévu des pâtes. Les dépenses récurrentes avaient visiblement réservé le menu dégustation. Qui reconnaît son budget de fin de semaine ?\n\nIdentifie l’invité qui n’a plus rien à faire à table.\n\n#humourbudget #vendredisoir #abonnements #depenses #budgetmensuel #argent #prelevements #subpilot #humourfr #finDeMois",
+    "hook": "Vendredi soir : le frigo est vide, les prélèvements ont dîné.",
+    "archetype": "B",
+    "status": "draft"
+  },
+  {
+    "id": "draft-vendredi-le-domino-que-ta-carte-n-a-pas-vu-venir-1789305108533-5",
+    "date": "2026-09-18",
+    "type": "story",
+    "image": "stories/story-story-verticale-1080-1920-metaphore-3d-cinematographique-tre-1789305108532.png",
+    "caption": "Une échéance anticipée laisse encore le temps de choisir. Une échéance découverte sur le relevé, beaucoup moins.\n\nAnticipe ton prochain prélèvement avec SubPilot.\n\n#renouvellement #alertebudget #prelevement #abonnements #anticipation #gestionargent #subpilot #financespersonnelles #budget #echeance",
+    "hook": "Le domino que ta carte n’a pas vu venir.",
+    "archetype": "D",
+    "status": "draft"
+  },
+  {
+    "id": "draft-samedi-meme-samedi-pas-la-meme-charge-mentale-1789305165243-6",
+    "date": "2026-09-19",
+    "type": "story",
+    "image": "stories/story-story-verticale-1080-1920-divisee-verticalement-en-deux-scen-1789305165240.png",
+    "caption": "Le gain n’est pas seulement dans le budget. Il est aussi dans le temps qu’on ne passe plus à chercher qui prélève quoi.\n\nCentralise tes abonnements.\n\n#avantapres #chargementale #organisation #abonnements #gestionbudget #subpilot #tempslibre #financespersonnelles #applicationmobile #samedi",
+    "hook": "Même samedi. Pas la même charge mentale.",
+    "archetype": "G",
+    "status": "draft"
+  },
+  {
+    "id": "draft-dimanche-toutes-les-portes-ouvertes-ne-meritent-pas-un-abonnement-1789305200597-7",
+    "date": "2026-09-20",
+    "type": "feed",
+    "image": "feed/feed-format-instagram-carre-1080-1080-nature-morte-artistique-et--1789305200596.png",
+    "caption": "Garder un accès « au cas où » finit parfois par coûter toute l’année. La bonne question n’est pas seulement « puis-je encore l’ouvrir ? », mais « est-ce que cette porte me sert encore ? »\n\nQuelle clé retirerais-tu du trousseau ?\n\n#abonnements #consommationdigitale #budget #depensesutiles #triNumerique #financespersonnelles #subpilot #economies #minimalisme #gestionargent",
+    "hook": "Toutes les portes ouvertes ne méritent pas un abonnement.",
+    "archetype": "I",
+    "status": "draft"
   }
 ]
