@@ -386,5 +386,85 @@
     "hook": "Qui tient vraiment les fils de tes dépenses ?",
     "archetype": "I",
     "status": "approved"
+  },
+  {
+    "id": "draft-mardi-une-interface-zero-brouillard-1789404230698-0",
+    "date": "2026-09-15",
+    "type": "feed",
+    "image": "feed/feed-visuel-instagram-feed-vertical-4-5-publicite-fintech-premium-1789404230696.png",
+    "caption": "Quand les dépenses récurrentes deviennent lisibles, les décisions le deviennent aussi. SubPilot rassemble l’essentiel dans une vue claire, accessible sur iPhone, Android et Web.\n\nDécouvre SubPilot.\n\n#subpilot #gestionabonnements #budgetpersonnel #financespersonnelles #applicationmobile #fintechfrance #maitrisesonbudget #depensesmensuelles #organisationfinanciere #budgetmalin",
+    "hook": "Une interface. Zéro brouillard.",
+    "archetype": "A",
+    "status": "draft"
+  },
+  {
+    "id": "draft-mercredi-le-saut-temporel-le-plus-cher-de-la-semaine-1789404272560-1",
+    "date": "2026-09-16",
+    "type": "story",
+    "image": "stories/story-story-instagram-verticale-9-16-meme-graphique-tres-lisible-s-1789404272556.png",
+    "caption": "Les essais gratuits ont une perception très personnelle du temps. Le rappel de renouvellement, lui, évite l’ellipse dramatique.\n\nEnvoie cette story à la personne qui oublie toujours ses essais gratuits.\n\n#essaigratuit #abonnements #humourbudget #memefrancais #depenses #prelevement #budgetmalin #rappel #financespersonnelles #subpilot",
+    "hook": "Le saut temporel le plus cher de la semaine.",
+    "archetype": "C",
+    "status": "draft"
+  },
+  {
+    "id": "draft-jeudi-ton-e-mail-peut-faire-l-inventaire-a-ta-place-1789404308345-2",
+    "date": "2026-09-17",
+    "type": "feed",
+    "image": "feed/feed-visuel-instagram-feed-vertical-4-5-feature-spotlight-lumineu-1789404308342.png",
+    "caption": "Un e-mail de confirmation peut déjà contenir ce qu’il faut pour retrouver un abonnement. SubPilot facilite sa détection et son ajout, sans transformer l’opération en séance de saisie administrative.\n\nCentralise tes abonnements dans SubPilot.\n\n#subpilot #detectionautomatique #gestionabonnements #email #applicationbudget #gain de temps #fintech #depensesrecurrentes #organisationnumerique #budgetpersonnel",
+    "hook": "Ton e-mail peut faire l’inventaire à ta place.",
+    "archetype": "E",
+    "status": "draft"
+  },
+  {
+    "id": "draft-vendredi-les-prelevements-ont-le-sens-de-la-maree-1789404356801-3",
+    "date": "2026-09-18",
+    "type": "story",
+    "image": "stories/story-story-instagram-verticale-9-16-metaphore-3d-surrealiste-sans-1789404356798.png",
+    "caption": "Le principe d’une dépense récurrente, c’est précisément qu’elle revient. La voir arriver permet au moins de choisir ce qui mérite encore de rester à flot.\n\nGarde un œil sur la prochaine vague avec SubPilot.\n\n#depensesrecurrentes #prelevements #abonnements #budgetmensuel #metaphorevisuelle #financespersonnelles #gestionbudget #subpilot #argent #anticipation",
+    "hook": "Les prélèvements ont le sens de la marée.",
+    "archetype": "D",
+    "status": "draft"
+  },
+  {
+    "id": "draft-samedi-le-reste-disponible-se-calcule-apres-les-recurrents-1789404387570-4",
+    "date": "2026-09-19",
+    "type": "feed",
+    "image": "feed/feed-visuel-instagram-feed-vertical-4-5-infographie-financiere-ed-1789404387568.png",
+    "caption": "Un budget utile ne se résume pas à une limite arbitraire. Commence par retirer ce qui est déjà engagé chaque mois : tu obtiens une vision bien plus honnête de ce qui reste réellement disponible.\n\nEnregistre ce rappel pour ton prochain point budget.\n\n#educationfinanciere #resteavivre #budgetpersonnel #chargesfixes #abonnements #financespersonnelles #conseilbudget #argentaufeminin #gestionfinanciere #subpilot",
+    "hook": "Le reste disponible se calcule après les récurrents.",
+    "archetype": "F",
+    "status": "draft"
+  },
+  {
+    "id": "draft-samedi-ce-soir-la-videuse-controle-aussi-les-prelevements-1789404442945-5",
+    "date": "2026-09-19",
+    "type": "story",
+    "image": "stories/story-story-instagram-verticale-9-16-scene-humoristique-cinematogr-1789404442943.png",
+    "caption": "« Nom ? Utilité ? Dernière utilisation ? » Certains abonnements risquent de rester derrière la corde ce soir.\n\nFais entrer en réponse l’abonnement que tu gardes sans hésiter.\n\n#humourfrancais #abonnements #tribudget #depenses #vendredisoir #budgetmalin #situationdrole #financespersonnelles #subpilot #economies",
+    "hook": "Ce soir, la videuse contrôle aussi les prélèvements.",
+    "archetype": "B",
+    "status": "draft"
+  },
+  {
+    "id": "draft-dimanche-chaque-abonnement-joue-sa-note-la-facture-fait-le-refrain-1789404490641-6",
+    "date": "2026-09-20",
+    "type": "story",
+    "image": "stories/story-story-instagram-verticale-9-16-concept-artistique-3d-futuris-1789404490638.png",
+    "caption": "Quand toutes les dépenses récurrentes jouent en même temps, le total finit par couvrir le reste. Les réunir au même endroit, c’est déjà reprendre la main sur le mix.\n\nRééquilibre tes pistes avec SubPilot.\n\n#conceptcreatif #abonnements #budgetmensuel #depensesrecurrentes #directionartistique #fintechdesign #gestionbudget #subpilot #financespersonnelles #artnumerique",
+    "hook": "Chaque abonnement joue sa note. La facture fait le refrain.",
+    "archetype": "I",
+    "status": "draft"
+  },
+  {
+    "id": "draft-lundi-entre-deux-gorgees-reprends-la-vue-d-ensemble-1789404530537-7",
+    "date": "2026-09-21",
+    "type": "feed",
+    "image": "feed/feed-visuel-instagram-feed-vertical-4-5-product-in-context-realis-1789404530536.png",
+    "caption": "Le point budget n’a pas besoin de monopoliser la matinée. Une vue claire suffit souvent pour savoir ce qui est déjà engagé et aborder la suite avec de meilleures informations.\n\nCommence la semaine avec SubPilot.\n\n#routinedulundi #budgetpersonnel #subpilot #gestionabonnements #applicationbudget #cafeetbudget #financespersonnelles #organisation #depensesmensuelles #fintechfrance",
+    "hook": "Entre deux gorgées, reprends la vue d’ensemble.",
+    "archetype": "J",
+    "status": "draft"
   }
 ]
