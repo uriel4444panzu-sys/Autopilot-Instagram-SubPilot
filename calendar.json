@@ -388,16 +388,6 @@
     "status": "approved"
   },
   {
-    "id": "draft-mardi-le-service-teste-une-fois-on-se-revoit-le-mois-prochain-1789304943983-1",
-    "date": "2026-09-15",
-    "type": "story",
-    "image": "stories/story-story-verticale-1080-1920-meme-visuel-tres-lisible-et-legere-1789304943979.png",
-    "caption": "Certains essais gratuits ont visiblement du mal à comprendre que l’histoire devait s’arrêter là.\n\nVérifie ce qui revient avec SubPilot.\n\n#abonnementoublie #essaiGratuit #humourfrancais #depenses #budget #prelevement #subpilot #memefrancais #argent #viequotidienne",
-    "hook": "Le service testé une fois : « On se revoit le mois prochain ? »",
-    "archetype": "C",
-    "status": "draft"
-  },
-  {
     "id": "draft-mercredi-un-abonnement-passe-ou-casse-en-trois-questions-1789304974661-2",
     "date": "2026-09-16",
     "type": "feed",
