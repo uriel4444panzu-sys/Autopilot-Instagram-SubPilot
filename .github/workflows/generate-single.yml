@@ -67,6 +67,12 @@ jobs:
           # git ici : son risque de conflit réel est quasi nul.
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+          # generate-single.js écrit aussi calendar.json sur disque en local
+          # (pour un usage hors GitHub Actions) — cette copie locale n'est
+          # jamais commitée ici (déjà enregistrée via l'API juste avant) et
+          # bloquerait "git pull --rebase" ("unstaged changes") si on ne
+          # l'annule pas.
+          git checkout -- calendar.json 2>/dev/null || true
           git add feed/ stories/
           if git diff --cached --quiet; then
             echo "Rien à committer."
