@@ -388,16 +388,6 @@
     "status": "approved"
   },
   {
-    "id": "draft-vendredi-vendredi-soir-le-frigo-est-vide-les-prelevements-ont-dine-1789305055754-4",
-    "date": "2026-09-18",
-    "type": "feed",
-    "image": "feed/feed-format-instagram-carre-1080-1080-scene-humoristique-photorea-1789305055753.png",
-    "caption": "On avait prévu des pâtes. Les dépenses récurrentes avaient visiblement réservé le menu dégustation. Qui reconnaît son budget de fin de semaine ?\n\nIdentifie l’invité qui n’a plus rien à faire à table.\n\n#humourbudget #vendredisoir #abonnements #depenses #budgetmensuel #argent #prelevements #subpilot #humourfr #finDeMois",
-    "hook": "Vendredi soir : le frigo est vide, les prélèvements ont dîné.",
-    "archetype": "B",
-    "status": "draft"
-  },
-  {
     "id": "draft-vendredi-le-domino-que-ta-carte-n-a-pas-vu-venir-1789305108533-5",
     "date": "2026-09-18",
     "type": "story",
