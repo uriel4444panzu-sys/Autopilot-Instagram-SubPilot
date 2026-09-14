@@ -386,5 +386,85 @@
     "hook": "Qui tient vraiment les fils de tes dépenses ?",
     "archetype": "I",
     "status": "approved"
+  },
+  {
+    "id": "draft-mardi-ce-qui-se-renouvelle-merite-une-place-visible-1789402690912-0",
+    "date": "2026-09-15",
+    "type": "feed",
+    "image": "feed/feed-visuel-instagram-feed-vertical-4-5-mockup-produit-fintech-ul-1789402690909.png",
+    "caption": "Un abonnement oublié reste pourtant très ponctuel au moment de prélever. Les rassembler dans un espace clair, c’est déjà reprendre la main sur ce qui se renouvelle.\n\nOuvre SubPilot et fais le point.\n\n#subpilot #gestionabonnements #fintechfrance #budgetmensuel #depenses #applicationmobile #argent #organisationfinanciere #abonnements #maitrisersonbudget",
+    "hook": "Ce qui se renouvelle mérite une place visible.",
+    "archetype": "A",
+    "status": "draft"
+  },
+  {
+    "id": "draft-mercredi-jour-1-gratuit-quelques-jours-plus-tard-ah-1789402740271-1",
+    "date": "2026-09-16",
+    "type": "story",
+    "image": "stories/story-story-instagram-verticale-9-16-meme-editorial-en-diptyque-ho-1789402740268.png",
+    "caption": "L’essai était gratuit. L’oubli, un peu moins. Le rappel de renouvellement est clairement le meilleur ami de ta mémoire.\n\nPartage cette story à la personne qui oublie toujours ses essais.\n\n#essaigratuit #renouvellement #abonnements #humourbudget #memefrancais #depenses #rappel #subpilot #budgetmalin #economies",
+    "hook": "Jour 1 : gratuit. Quelques jours plus tard : « ah ».",
+    "archetype": "C",
+    "status": "draft"
+  },
+  {
+    "id": "draft-jeudi-ta-boite-mail-connait-deja-une-partie-de-tes-abonnements-1789402783420-2",
+    "date": "2026-09-17",
+    "type": "feed",
+    "image": "feed/feed-visuel-instagram-feed-vertical-4-5-feature-spotlight-futuris-1789402783418.png",
+    "caption": "Les confirmations qui dorment dans ta boîte mail peuvent aussi aider à retrouver ce qui se renouvelle. SubPilot facilite la détection pour éviter qu’un abonnement reste hors radar.\n\nCentralise ce que ta boîte mail a déjà repéré.\n\n#detectionautomatique #gestionabonnements #subpilot #boitemail #organisationnumerique #fintech #suivibudget #application #depensesrecurrentes #productivite",
+    "hook": "Ta boîte mail connaît déjà une partie de tes abonnements.",
+    "archetype": "E",
+    "status": "draft"
+  },
+  {
+    "id": "draft-vendredi-avant-de-renouveler-fais-lui-passer-trois-questions-1789402827069-3",
+    "date": "2026-09-18",
+    "type": "story",
+    "image": "stories/story-story-instagram-verticale-9-16-infographie-minimaliste-inspi-1789402827067.png",
+    "caption": "Un abonnement n’a pas besoin d’être cher pour mériter une vérification. S’il est peu utilisé, peu utile ou facilement remplaçable, la prochaine échéance est un bon moment pour décider.\n\nFais le test avant le prochain renouvellement.\n\n#educationfinanciere #budgetmalin #abonnements #financespersonnelles #economiser #depensesmensuelles #conseilbudget #subpilot #consommermieux #renouvellement",
+    "hook": "Avant de renouveler, fais-lui passer trois questions.",
+    "archetype": "F",
+    "status": "draft"
+  },
+  {
+    "id": "draft-samedi-tu-voulais-voir-un-film-te-voila-en-plein-inventaire-1789402866563-4",
+    "date": "2026-09-19",
+    "type": "feed",
+    "image": "feed/feed-visuel-instagram-feed-vertical-4-5-scene-humoristique-photor-1789402866560.png",
+    "caption": "Le vrai suspense du samedi soir : trouver où regarder quelque chose parmi tous les services déjà payés. Pendant ce temps, le chat a choisi son programme.\n\nDis-nous combien de télécommandes vivent chez toi.\n\n#humourabonnements #streaming #samedisoir #depenses #abonnements #viedeadulte #budgetloisirs #subpilot #humourfrancais #organisation",
+    "hook": "Tu voulais voir un film. Te voilà en plein inventaire.",
+    "archetype": "B",
+    "status": "draft"
+  },
+  {
+    "id": "draft-samedi-ta-pile-tient-jusqu-au-renouvellement-de-trop-1789402913007-5",
+    "date": "2026-09-19",
+    "type": "story",
+    "image": "stories/story-story-instagram-verticale-9-16-metaphore-3d-spectaculaire-su-1789402913004.png",
+    "caption": "Pris séparément, chaque bloc semble tenir. C’est l’accumulation qui finit par rendre l’ensemble fragile.\n\nRepère le bloc dont tu n’as plus besoin.\n\n#metaphorevisuelle #abonnements #budget #depensesrecurrentes #subpilot #argent #accumulation #gestionbudget #design3d #financespersonnelles",
+    "hook": "Ta pile tient. Jusqu’au renouvellement de trop.",
+    "archetype": "D",
+    "status": "draft"
+  },
+  {
+    "id": "draft-dimanche-le-rituel-du-dimanche-qui-remet-les-chiffres-au-calme-1789402962226-6",
+    "date": "2026-09-20",
+    "type": "story",
+    "image": "stories/story-story-instagram-verticale-9-16-photographie-lifestyle-produi-1789402962224.png",
+    "caption": "Pas besoin de transformer le dimanche en réunion comptable. Un aperçu clair suffit souvent pour aborder la semaine avec moins de bruit mental.\n\nConsulte ton budget dans SubPilot.\n\n#ritueldu dimanche #budget #subpilot #organisationsemaine #financespersonnelles #gestiondepenses #dimanchesoir #applicationbudget #serenitefinanciere #abonnements",
+    "hook": "Le rituel du dimanche qui remet les chiffres au calme.",
+    "archetype": "J",
+    "status": "draft"
+  },
+  {
+    "id": "draft-lundi-passer-de-je-crois-a-je-sais-1789402998223-7",
+    "date": "2026-09-21",
+    "type": "feed",
+    "image": "feed/feed-visuel-instagram-feed-vertical-4-5-avant-apres-conceptuel-di-1789402998222.png",
+    "caption": "L’incertitude prend de la place : combien, quand, pour quoi ? Rassembler ses abonnements transforme une impression vague en information utile — et les décisions deviennent beaucoup plus simples.\n\nRemplace les suppositions par une vue claire avec SubPilot.\n\n#avantapres #gestionabonnements #clartefinanciere #subpilot #budgetmensuel #depenses #organisation #fintechfrance #maitrisersonargent #applicationmobile",
+    "hook": "Passer de « je crois » à « je sais ».",
+    "archetype": "G",
+    "status": "draft"
   }
 ]
