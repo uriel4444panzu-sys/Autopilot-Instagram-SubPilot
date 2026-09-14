@@ -415,7 +415,7 @@
     "caption": "Un e-mail de confirmation peut déjà contenir ce qu’il faut pour retrouver un abonnement. SubPilot facilite sa détection et son ajout, sans transformer l’opération en séance de saisie administrative.\n\nCentralise tes abonnements dans SubPilot.\n\n#subpilot #detectionautomatique #gestionabonnements #email #applicationbudget #gain de temps #fintech #depensesrecurrentes #organisationnumerique #budgetpersonnel",
     "hook": "Ton e-mail peut faire l’inventaire à ta place.",
     "archetype": "E",
-    "status": "draft"
+    "status": "approved"
   },
   {
     "id": "draft-vendredi-les-prelevements-ont-le-sens-de-la-maree-1789404356801-3",
