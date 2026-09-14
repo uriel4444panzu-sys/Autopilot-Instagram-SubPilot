@@ -50,26 +50,32 @@ jobs:
           OPENAI_TEXT_MODEL: ${{ vars.OPENAI_TEXT_MODEL }}
           REEL_DAY: ${{ github.event.inputs.reel_day }}
           REEL_VIDEO: ${{ github.event.inputs.reel_video }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: node scripts/generate-week.js
 
-      - name: Committer les brouillons et images générées
+      - name: Committer les images générées
         run: |
+          # calendar.json est déjà enregistré par generate-week.js via l'API
+          # Contents de GitHub (relecture + fusion à chaque tentative) — un
+          # "git push" classique peut entrer en conflit RÉEL (pas juste
+          # "quelqu'un a poussé, retente") quand deux commits ajoutent
+          # chacun une entrée en fin de tableau JSON en même temps, ce que
+          # git ne peut pas fusionner tout seul (constaté en usage réel).
+          # Seules les images (fichiers nouveaux, noms uniques) passent
+          # encore par git ici : leur risque de conflit réel est quasi nul.
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add calendar.json feed/ stories/
+          git add feed/ stories/
           if git diff --cached --quiet; then
             echo "Rien à committer."
             exit 0
           fi
-          git commit -m "chore: brouillons de la semaine générés (OpenAI) - à valider"
-          # La génération de plusieurs images prend plusieurs minutes : un
-          # autre commit (cron de publication, approbation) peut atterrir
-          # sur main entre-temps et faire échouer un simple "git push" — le
-          # lot entier serait alors perdu (déjà constaté en usage réel).
+          git commit -m "chore: images de la semaine générées (OpenAI)"
           for i in $(seq 1 10); do
             git pull --rebase origin "${GITHUB_REF_NAME}" && git push && exit 0
-            echo "Push refusé (probablement un autre commit entre-temps), nouvelle tentative ($i/10)..."
+            echo "Push refusé, nouvelle tentative ($i/10)..."
+            git rebase --abort 2>/dev/null || true
             sleep 6
           done
-          echo "::error::Impossible de pousser le lot généré après plusieurs tentatives."
+          echo "::error::Impossible de pousser les images générées après plusieurs tentatives."
           exit 1

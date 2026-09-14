@@ -43,6 +43,7 @@ const fs = require("fs");
 const path = require("path");
 const { generateAndSaveImage, slugify } = require("./generate-image.js");
 const { generatePostsBatch, buildHistory, checkDiversity, checkStoryText } = require("./lib/brand.js");
+const { appendToCalendar } = require("./lib/githubWrite.js");
 
 const DIR = path.join(__dirname, "..");
 const DAY_NAMES_BY_WEEKDAY = ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"];
@@ -235,6 +236,7 @@ ${history.length ? history.map((h) => `- ${h}`).join("\n") : "(aucun pour l'inst
   }
 
   fs.writeFileSync(path.join(DIR, "calendar.json"), JSON.stringify([...calendar, ...drafts], null, 2) + "\n");
+  await appendToCalendar(drafts, "chore: brouillons de la semaine générés (OpenAI) - à valider");
 
   console.log("\n──────────────────────────────────────────");
   console.log(`✅ Semaine du ${weekStart} au ${slots[slots.length - 1].date} préparée (${drafts.length} brouillons).`);

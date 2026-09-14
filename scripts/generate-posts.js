@@ -23,6 +23,7 @@ const fs = require("fs");
 const path = require("path");
 const { generateAndSaveImage, slugify } = require("./generate-image.js");
 const { generatePostsBatch, buildHistory, checkDiversity, checkStoryText } = require("./lib/brand.js");
+const { appendToCalendar } = require("./lib/githubWrite.js");
 
 const DIR = path.join(__dirname, "..");
 
@@ -109,6 +110,7 @@ ${history.length ? history.map((h) => `- ${h}`).join("\n") : "(aucun pour l'inst
   }
 
   fs.writeFileSync(path.join(DIR, "calendar.json"), JSON.stringify([...calendar, ...drafts], null, 2) + "\n");
+  await appendToCalendar(drafts, "chore: brouillons générés (OpenAI) - à valider");
 
   console.log("\n──────────────────────────────────────────");
   console.log(`✅ ${drafts.length} brouillon(s) ajouté(s) à calendar.json (status: "draft").`);
