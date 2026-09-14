@@ -69,7 +69,8 @@ jobs:
           # serait alors perdue (déjà constaté en usage réel sur generate-week).
           for i in $(seq 1 10); do
             git pull --rebase origin "${GITHUB_REF_NAME}" && git push && exit 0
-            echo "Push refusé (probablement un autre commit entre-temps), nouvelle tentative ($i/10)..."
+            echo "Push refusé, nouvelle tentative ($i/10)..."
+            git rebase --abort 2>/dev/null || true
             sleep 6
           done
           echo "::error::Impossible de pousser l'image générée après plusieurs tentatives."

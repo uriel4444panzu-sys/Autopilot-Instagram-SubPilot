@@ -52,26 +52,32 @@ jobs:
           TYPE: ${{ github.event.inputs.type }}
           REEL_VIDEO: ${{ github.event.inputs.reel_video }}
           IMAGE_QUALITY: ${{ github.event.inputs.quality }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: node scripts/generate-single.js
 
-      - name: Committer le brouillon et l'image générée
+      - name: Committer l'image générée
         run: |
+          # calendar.json est déjà enregistré par generate-single.js via
+          # l'API Contents de GitHub (relecture + fusion à chaque tentative)
+          # — un "git push" classique peut entrer en conflit RÉEL (pas
+          # juste "quelqu'un a poussé, retente") quand deux commits ajoutent
+          # chacun une entrée en fin de tableau JSON en même temps, ce que
+          # git ne peut pas fusionner tout seul (constaté en usage réel).
+          # Seule l'image (fichier nouveau, nom unique) passe encore par
+          # git ici : son risque de conflit réel est quasi nul.
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add calendar.json feed/ stories/
+          git add feed/ stories/
           if git diff --cached --quiet; then
             echo "Rien à committer."
             exit 0
           fi
-          git commit -m "chore: brouillon généré (OpenAI) - à valider"
-          # La génération de l'image prend un moment : un autre commit
-          # (cron de publication, approbation) peut atterrir sur main
-          # entre-temps et faire échouer un simple "git push" — le brouillon
-          # serait alors perdu (déjà constaté en usage réel sur generate-week).
+          git commit -m "chore: image générée (OpenAI)"
           for i in $(seq 1 10); do
             git pull --rebase origin "${GITHUB_REF_NAME}" && git push && exit 0
-            echo "Push refusé (probablement un autre commit entre-temps), nouvelle tentative ($i/10)..."
+            echo "Push refusé, nouvelle tentative ($i/10)..."
+            git rebase --abort 2>/dev/null || true
             sleep 6
           done
-          echo "::error::Impossible de pousser le brouillon généré après plusieurs tentatives."
+          echo "::error::Impossible de pousser l'image générée après plusieurs tentatives."
           exit 1
