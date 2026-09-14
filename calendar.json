@@ -456,15 +456,5 @@
     "hook": "Chaque abonnement joue sa note. La facture fait le refrain.",
     "archetype": "I",
     "status": "approved"
-  },
-  {
-    "id": "draft-lundi-entre-deux-gorgees-reprends-la-vue-d-ensemble-1789404530537-7",
-    "date": "2026-09-21",
-    "type": "feed",
-    "image": "feed/feed-visuel-instagram-feed-vertical-4-5-product-in-context-realis-1789404530536.png",
-    "caption": "Le point budget n’a pas besoin de monopoliser la matinée. Une vue claire suffit souvent pour savoir ce qui est déjà engagé et aborder la suite avec de meilleures informations.\n\nCommence la semaine avec SubPilot.\n\n#routinedulundi #budgetpersonnel #subpilot #gestionabonnements #applicationbudget #cafeetbudget #financespersonnelles #organisation #depensesmensuelles #fintechfrance",
-    "hook": "Entre deux gorgées, reprends la vue d’ensemble.",
-    "archetype": "J",
-    "status": "draft"
   }
 ]
