@@ -456,5 +456,15 @@
     "hook": "Chaque abonnement joue sa note. La facture fait le refrain.",
     "archetype": "I",
     "status": "approved"
+  },
+  {
+    "id": "draft-a-la-rentree-fais-aussi-l-appel-de-tes-abonnements-1789404818862",
+    "date": "2026-09-21",
+    "type": "feed",
+    "image": "feed/feed-visuel-instagram-carre-1080-x-1080-publicite-produit-premium-1789404818860.png",
+    "caption": "Ceux qu’on utilise tous les jours. Ceux qu’on avait presque oubliés. Et ceux qui continuent discrètement leur scolarité bancaire.\n\nLa rentrée est un bon prétexte pour refaire l’appel : SubPilot rassemble tes abonnements dans une seule vue, sans feuille volante ni calcul mental.\n\nFais l’appel dans SubPilot.\n\n#abonnements #gestionbudget #budgetmensuel #financespersonnelles #applicationbudget #depenses #economies #rentree #fintechfrancaise #subpilot",
+    "hook": "À la rentrée, fais aussi l’appel de tes abonnements.",
+    "archetype": "A",
+    "status": "draft"
   }
 ]
