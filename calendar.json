@@ -388,16 +388,6 @@
     "status": "approved"
   },
   {
-    "id": "draft-jeudi-ta-boite-mail-connait-deja-une-partie-de-la-reponse-1789305017002-3",
-    "date": "2026-09-17",
-    "type": "story",
-    "image": "stories/story-story-verticale-1080-1920-composition-technologique-dynamiqu-1789305017000.png",
-    "caption": "SubPilot peut détecter automatiquement des abonnements depuis un e-mail, pour éviter de repartir de zéro au moment de faire l’inventaire.\n\nTeste la détection automatique.\n\n#subpilot #detectionautomatique #abonnements #boitemail #gestionbudget #application #automatisation #fintech #organisationdigitale #gainDeTemps",
-    "hook": "Ta boîte mail connaît déjà une partie de la réponse.",
-    "archetype": "E",
-    "status": "draft"
-  },
-  {
     "id": "draft-vendredi-vendredi-soir-le-frigo-est-vide-les-prelevements-ont-dine-1789305055754-4",
     "date": "2026-09-18",
     "type": "feed",
