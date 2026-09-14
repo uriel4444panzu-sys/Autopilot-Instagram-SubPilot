@@ -331,5 +331,12 @@
     "publisher": "buffer",
     "status": "scheduled",
     "scheduledAt": "2026-09-20T08:00:00.000Z"
+  },
+  "draft-a-la-rentree-fais-aussi-l-appel-de-tes-abonnements-1789404818862": {
+    "at": "2026-09-14T16:55:54.992Z",
+    "mediaId": "6aa8271aaa238b6cdfa5ee2f",
+    "publisher": "buffer",
+    "status": "scheduled",
+    "scheduledAt": "2026-09-21T08:00:00.000Z"
   }
 }
