@@ -466,5 +466,85 @@
     "hook": "À la rentrée, fais aussi l’appel de tes abonnements.",
     "archetype": "A",
     "status": "approved"
+  },
+  {
+    "id": "draft-lundi-l-essai-gratuit-qui-revient-avec-une-fausse-moustache-1789908791531-0",
+    "date": "2026-09-21",
+    "type": "story",
+    "image": "stories/story-story-instagram-verticale-9-16-meme-visuel-premium-sans-pers-1789908791527.png",
+    "caption": "Il avait promis de ne rester que quelques jours. Il est revenu tous les mois.\n\nProgramme ton rappel avant la fin de l’essai.\n\n#essaigratuit #abonnements #humourfrancais #depenses #budgetmalin #economies #financespersonnelles #subpilot",
+    "hook": "L’essai gratuit qui revient avec une fausse moustache.",
+    "archetype": "C",
+    "status": "draft"
+  },
+  {
+    "id": "draft-mardi-la-vue-qui-remet-chaque-euro-recurrent-a-sa-place-1789908828599-1",
+    "date": "2026-09-22",
+    "type": "feed",
+    "image": "feed/feed-publication-instagram-verticale-4-5-mockup-produit-fintech-t-1789908828598.png",
+    "caption": "Pas besoin de reconstruire le puzzle à chaque fin de mois. SubPilot rassemble tes abonnements et leur coût dans une vue claire, accessible sur iPhone, Android et Web.\n\nDécouvre ton tableau de bord SubPilot.\n\n#subpilot #gestionabonnements #applicationmobile #fintechfrance #budget #depensesmensuelles #organisation #technologie #androidfrance #iphonefrance",
+    "hook": "La vue qui remet chaque euro récurrent à sa place.",
+    "archetype": "A",
+    "status": "draft"
+  },
+  {
+    "id": "draft-mercredi-meme-prix-affiche-cadence-differente-1789908870403-2",
+    "date": "2026-09-23",
+    "type": "story",
+    "image": "stories/story-story-instagram-verticale-9-16-infographie-financiere-modern-1789908870401.png",
+    "caption": "Comparer uniquement les prix ne suffit pas : il faut aussi regarder quand chaque paiement revient.\n\nVérifie la cadence de tes abonnements.\n\n#educationfinanciere #budgetpersonnel #abonnements #facturation #gestionbudget #financespersonnelles #conseilbudget #depensesrecurrentes #subpilot",
+    "hook": "Même prix affiché, cadence différente.",
+    "archetype": "F",
+    "status": "draft"
+  },
+  {
+    "id": "draft-jeudi-une-decision-prise-pas-un-parcours-du-combattant-1789908905770-3",
+    "date": "2026-09-24",
+    "type": "feed",
+    "image": "feed/feed-publication-instagram-verticale-4-5-centree-sur-une-fonction-1789908905769.png",
+    "caption": "Quand tu as décidé qu’un abonnement devait partir, tu n’as pas envie d’y consacrer ton après-midi. SubPilot facilite sa résiliation en un clic.\n\nReprends la main avec SubPilot.\n\n#resiliation #abonnements #subpilot #gestionabonnements #economies #budgetmalin #applicationfrancaise #fintech #depenses #simplifiervie",
+    "hook": "Une décision prise. Pas un parcours du combattant.",
+    "archetype": "E",
+    "status": "draft"
+  },
+  {
+    "id": "draft-vendredi-la-recompense-que-personne-ne-veut-recevoir-1789908957067-4",
+    "date": "2026-09-25",
+    "type": "story",
+    "image": "stories/story-story-instagram-verticale-9-16-photographie-humoristique-rea-1789908957065.png",
+    "caption": "Une ovation pour ce service payé fidèlement et utilisé approximativement jamais.\n\nFais le casting de tes abonnements.\n\n#humour #abonnement #depensesinutiles #budget #economies #viedeadulte #argent #gestionbudget #subpilot #humourfrancais",
+    "hook": "La récompense que personne ne veut recevoir.",
+    "archetype": "B",
+    "status": "draft"
+  },
+  {
+    "id": "draft-samedi-ton-budget-voyage-avec-des-bagages-automatiques-1789908992170-5",
+    "date": "2026-09-26",
+    "type": "feed",
+    "image": "feed/feed-publication-instagram-verticale-4-5-metaphore-3d-surrealiste-1789908992169.png",
+    "caption": "Certains bagages, tu les as choisis. D’autres te suivent parce que le paiement se renouvelle tout seul. Les identifier, c’est déjà voyager plus léger.\n\nCentralise ce qui revient chaque mois.\n\n#metaphorevisuelle #abonnements #budgetpersonnel #depensesrecurrentes #argent #economiser #finances #subpilot #design3d",
+    "hook": "Ton budget voyage avec des bagages automatiques.",
+    "archetype": "D",
+    "status": "draft"
+  },
+  {
+    "id": "draft-dimanche-meme-mois-deux-niveaux-de-visibilite-1789909036713-6",
+    "date": "2026-09-27",
+    "type": "story",
+    "image": "stories/story-story-instagram-verticale-9-16-en-diptyque-avant-apres-tres--1789909036711.png",
+    "caption": "La dépense ne change pas quand on la regarde. En revanche, la façon de la préparer change complètement.\n\nPasse de l’improvisation à l’anticipation.\n\n#avantapres #anticipation #budget #organisationfinanciere #abonnements #depenses #conseilfinancier #subpilot #gestionbudget",
+    "hook": "Même mois. Deux niveaux de visibilité.",
+    "archetype": "G",
+    "status": "draft"
+  },
+  {
+    "id": "draft-dimanche-le-dimanche-soir-ton-budget-merite-mieux-qu-un-pressentiment-1789909072830-7",
+    "date": "2026-09-27",
+    "type": "feed",
+    "image": "feed/feed-publication-instagram-verticale-4-5-scene-lifestyle-produit--1789909072829.png",
+    "caption": "Un thé, cinq minutes au calme, et une vision nette de ce qui est déjà engagé. Voilà une préparation du lundi qu’on peut garder.\n\nPrépare ton mois avec SubPilot.\n\n#dimanchesoir #budget #routinefinanciere #subpilot #gestionabonnements #organisation #financespersonnelles #applicationmobile #productivite #depensesmensuelles",
+    "hook": "Le dimanche soir, ton budget mérite mieux qu’un pressentiment.",
+    "archetype": "J",
+    "status": "draft"
   }
 ]
