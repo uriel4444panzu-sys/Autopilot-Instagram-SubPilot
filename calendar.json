@@ -546,5 +546,85 @@
     "hook": "Le dimanche soir, ton budget mérite mieux qu’un pressentiment.",
     "archetype": "J",
     "status": "draft"
+  },
+  {
+    "id": "draft-vendredi-ton-suivi-ne-s-arrete-pas-a-un-ecran-1790248163262-0",
+    "date": "2026-09-25",
+    "type": "feed",
+    "image": "feed/feed-visuel-instagram-feed-vertical-4-5-1080x1350-composition-pub-1790248163260.png",
+    "caption": "Téléphone dans le métro, ordinateur au bureau, tablette sur le canapé : tes abonnements restent au même endroit. SubPilot est disponible sur iPhone, Android et Web, parce qu’un bon suivi doit s’adapter à ton quotidien — pas l’inverse.\n\nRetrouve SubPilot sur ton écran préféré.\n\n#subpilot #gestionabonnements #applicationmobile #fintechfrancaise #budgetpersonnel #depensesmensuelles #organisationfinanciere #applicationbudget #multiplateforme",
+    "hook": "Ton suivi ne s’arrête pas à un écran.",
+    "archetype": "A",
+    "status": "draft"
+  },
+  {
+    "id": "draft-vendredi-six-plateformes-plus-tard-personne-n-a-choisi-le-film-1790248217931-1",
+    "date": "2026-09-25",
+    "type": "story",
+    "image": "stories/story-story-instagram-9-16-1080x1920-scene-humoristique-lumineuse--1790248217928.png",
+    "caption": "La soirée cinéma avait commencé avec de bonnes intentions. Puis chaque télécommande a proposé sa propre réunion stratégique.\n\nEnvoie cette story au groupe qui choisit toujours trop longtemps.\n\n#humourfrancais #streaming #soireefilm #abonnements #budgetloisirs #viedeadulte #depenses #subpilot #humourquotidien",
+    "hook": "Six plateformes plus tard, personne n’a choisi le film.",
+    "archetype": "B",
+    "status": "draft"
+  },
+  {
+    "id": "draft-samedi-octobre-arrive-avec-des-passagers-clandestins-1790248270974-2",
+    "date": "2026-09-26",
+    "type": "story",
+    "image": "stories/story-story-instagram-verticale-9-16-1080x1920-metaphore-3d-elegan-1790248270971.png",
+    "caption": "Un nouveau mois ne repart jamais totalement de zéro : les dépenses récurrentes voyagent avec lui. Les identifier, c’est déjà alléger la valise.\n\nFais l’inventaire avant le départ.\n\n#nouveaumois #budgetmensuel #chargesfixes #abonnements #depensesrecurrentes #gestionbudget #financespersonnelles #subpilot #octobre",
+    "hook": "Octobre arrive avec des passagers clandestins.",
+    "archetype": "D",
+    "status": "draft"
+  },
+  {
+    "id": "draft-dimanche-connais-tu-ton-taux-de-depenses-recurrentes-1790248303046-3",
+    "date": "2026-09-27",
+    "type": "feed",
+    "image": "feed/feed-visuel-instagram-feed-4-5-1080x1350-infographie-editoriale-m-1790248303044.png",
+    "caption": "Additionne le coût mensuel de tes abonnements, divise-le par tes revenus mensuels, puis multiplie par 100. Il n’existe pas de pourcentage magique valable pour tout le monde : l’intérêt est surtout de suivre son évolution et de vérifier qu’il correspond encore à tes priorités.\n\nCalcule-le aujourd’hui, puis compare-le le mois prochain.\n\n#educationfinanciere #budgetpersonnel #financespersonnelles #depensesrecurrentes #gestionbudget #abonnements #astucebudget #subpilot #argent",
+    "hook": "Connais-tu ton taux de dépenses récurrentes ?",
+    "archetype": "F",
+    "status": "draft"
+  },
+  {
+    "id": "draft-lundi-le-bon-moment-pour-agir-c-est-avant-le-debit-1790248355905-4",
+    "date": "2026-09-28",
+    "type": "story",
+    "image": "stories/story-story-instagram-9-16-1080x1920-feature-spotlight-fintech-en--1790248355903.png",
+    "caption": "Un rappel reçu avant l’échéance laisse encore le temps de vérifier, conserver ou arrêter. Après le prélèvement, la marge de décision est forcément plus petite.\n\nActive ton suivi avec SubPilot.\n\n#rappelpaiement #alertebudget #abonnements #prelevement #gestionabonnements #applicationbudget #fintech #subpilot #budgetmensuel",
+    "hook": "Le bon moment pour agir, c’est avant le débit.",
+    "archetype": "E",
+    "status": "draft"
+  },
+  {
+    "id": "draft-mardi-le-30-on-se-croit-tranquille-le-1er-a-garde-les-recus-1790248393997-5",
+    "date": "2026-09-29",
+    "type": "feed",
+    "image": "feed/feed-visuel-instagram-feed-vertical-4-5-1080x1350-meme-premium-en-1790248393995.png",
+    "caption": "Cette courte période où le solde donne confiance… juste avant que tous les paiements récurrents entrent dans la conversation en même temps. Qui connaît ce scénario par cœur ?\n\nIdentifie la personne qui redoute toujours le 1er.\n\n#memefrancais #findemois #prelevements #abonnements #humourbudget #viedeadulte #depensesmensuelles #subpilot #budget",
+    "hook": "Le 30, on se croit tranquille. Le 1er a gardé les reçus.",
+    "archetype": "C",
+    "status": "draft"
+  },
+  {
+    "id": "draft-mercredi-le-calendrier-tourne-les-debits-savent-suivre-1790248450884-6",
+    "date": "2026-09-30",
+    "type": "story",
+    "image": "stories/story-story-instagram-9-16-1080x1920-installation-artistique-surre-1790248450881.png",
+    "caption": "Le changement de mois est instantané. Les dépenses automatiques, elles, suivent un calendrier préparé depuis longtemps. Autant le connaître avant qu’il ne s’exécute.\n\nEntre dans le nouveau mois avec une vue claire.\n\n#calendrierbudget #depensesautomatiques #nouveaumois #abonnements #artdigital #concept3d #financespersonnelles #subpilot #octobre",
+    "hook": "Le calendrier tourne. Les débits savent suivre.",
+    "archetype": "I",
+    "status": "draft"
+  },
+  {
+    "id": "draft-jeudi-le-1er-n-est-pas-oblige-de-commencer-en-mode-degats-1790248500268-7",
+    "date": "2026-10-01",
+    "type": "feed",
+    "image": "feed/feed-visuel-instagram-feed-vertical-4-5-1080x1350-avant-apres-en--1790248500266.png",
+    "caption": "Commencer le mois en découvrant les dépenses au fur et à mesure, ou savoir ce qui est déjà engagé avant de décider du reste. Les prélèvements ne changent peut-être pas immédiatement ; la façon de les piloter, oui.\n\nPasse du mode réaction au mode pilotage avec SubPilot.\n\n#gestionbudget #debutdumois #budgetoctobre #abonnements #financespersonnelles #applicationbudget #depensesmensuelles #subpilot #controlebudget",
+    "hook": "Le 1er n’est pas obligé de commencer en mode dégâts.",
+    "archetype": "G",
+    "status": "draft"
   }
 ]
