@@ -595,7 +595,7 @@
     "caption": "Un rappel reçu avant l’échéance laisse encore le temps de vérifier, conserver ou arrêter. Après le prélèvement, la marge de décision est forcément plus petite.\n\nActive ton suivi avec SubPilot.\n\n#rappelpaiement #alertebudget #abonnements #prelevement #gestionabonnements #applicationbudget #fintech #subpilot #budgetmensuel",
     "hook": "Le bon moment pour agir, c’est avant le débit.",
     "archetype": "E",
-    "status": "draft"
+    "status": "approved"
   },
   {
     "id": "draft-mardi-le-30-on-se-croit-tranquille-le-1er-a-garde-les-recus-1790248393997-5",
