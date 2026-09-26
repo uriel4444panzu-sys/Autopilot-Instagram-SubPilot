@@ -338,5 +338,11 @@
     "publisher": "buffer",
     "status": "scheduled",
     "scheduledAt": "2026-09-21T08:00:00.000Z"
+  },
+  "draft-lundi-l-essai-gratuit-qui-revient-avec-une-fausse-moustache-1789908791531-0": {
+    "at": "2026-09-26T15:21:05.940Z",
+    "publisher": "buffer",
+    "status": "failed",
+    "publishError": "Buffer API: Scheduled time must be in the future"
   }
 }
