@@ -434,5 +434,12 @@
     "publisher": "buffer",
     "status": "scheduled",
     "scheduledAt": "2026-09-30T08:00:00.000Z"
+  },
+  "draft-jeudi-le-1er-n-est-pas-oblige-de-commencer-en-mode-degats-1790248500268-7": {
+    "at": "2026-09-26T15:22:42.932Z",
+    "mediaId": "6ab7e3424b4b9f2c1c4f5cfd",
+    "publisher": "buffer",
+    "status": "scheduled",
+    "scheduledAt": "2026-10-01T08:00:00.000Z"
   }
 }
