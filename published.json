@@ -390,7 +390,7 @@
     "scheduledAt": "2026-09-27T08:00:00.000Z"
   },
   "draft-vendredi-ton-suivi-ne-s-arrete-pas-a-un-ecran-1790248163262-0": {
-    "at": "2026-10-08T17:12:44.396Z",
+    "at": "2026-10-09T16:49:31.352Z",
     "publisher": "buffer",
     "status": "failed",
     "publishError": "Buffer API: Scheduled time must be in the future"
