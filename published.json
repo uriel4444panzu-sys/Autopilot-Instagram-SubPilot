@@ -111,7 +111,7 @@
     "publishError": "Buffer API: Scheduled time must be in the future"
   },
   "draft-ton-cerveau-peut-arreter-de-faire-le-suivi-1788118451998-1": {
-    "at": "2026-10-17T13:27:58.887Z",
+    "at": "2026-10-18T13:46:24.451Z",
     "publisher": "buffer",
     "status": "failed",
     "publishError": "Buffer API: Scheduled time must be in the future"
