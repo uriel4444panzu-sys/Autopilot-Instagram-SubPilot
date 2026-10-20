@@ -352,7 +352,7 @@
     "publishError": "Buffer API: Scheduled time must be in the future"
   },
   "draft-mercredi-meme-prix-affiche-cadence-differente-1789908870403-2": {
-    "at": "2026-10-19T16:48:11.928Z",
+    "at": "2026-10-20T14:41:10.021Z",
     "publisher": "buffer",
     "status": "failed",
     "publishError": "Buffer API: Scheduled time must be in the future"
