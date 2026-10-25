@@ -229,7 +229,7 @@
     "scheduledAt": "2026-09-07T08:00:00.000Z"
   },
   "draft-lundi-et-si-ton-budget-arretait-de-jouer-a-cache-cache-1788695937022-0": {
-    "at": "2026-10-24T13:50:21.600Z",
+    "at": "2026-10-25T14:07:00.760Z",
     "publisher": "buffer",
     "status": "failed",
     "publishError": "Buffer API: Scheduled time must be in the future"
